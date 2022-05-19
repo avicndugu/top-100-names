@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={ <Home /> } />
           <Route path="year" element= { <Year /> }/>
+          <Route path="year/gender" element={ <Gender /> } />
         </Routes>
         
       </main>
