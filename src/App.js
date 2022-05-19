@@ -1,23 +1,75 @@
-import logo from './logo.svg';
 import './App.css';
+import { Home } from './pages/home/Home';
+import { Year } from './pages/year/Year';
+import { Gender } from './pages/gender/Gender';
 
 function App() {
   return (
-    <div className="App">
+    <div className="Container">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <span>Top 100 Names</span>
       </header>
+      <main>
+        <div>
+          <h1>Top 100 Baby Names in 2021</h1>
+          <div className="Row">
+            <div className="Column">
+              <ol>
+                <li>NAME</li>
+                <li>NAME</li>
+                <li>NAME</li>
+                <li>NAME</li>
+                <li>NAME</li>
+              </ol>
+              <a href="#">View All</a>
+            </div>
+            <div className="Column">
+              <ol>
+                <li>NAME</li>
+                <li>NAME</li>
+                <li>NAME</li>
+                <li>NAME</li>
+                <li>NAME</li>
+              </ol>
+              <a href="/year/gender/">View All</a>
+            </div>
+          </div>
+        </div>
+        <div className="Row">
+          <div className="Column">
+            <h2>Top 100 Baby Boys Names in 2021</h2>
+            <ol>
+              <li>NAME</li>
+              <li>NAME</li>
+              <li>NAME</li>
+              <li>NAME</li>
+              <li>NAME</li>
+            </ol>
+              <a href="/years/gender/">View All</a>
+          </div>
+          <div className="Column">
+            <h2>Top 100 Baby Girls Names in 2021</h2>
+            <ol>
+              <li>NAME</li>
+              <li>NAME</li>
+              <li>NAME</li>
+              <li>NAME</li>
+              <li>NAME</li>
+            </ol>
+              <a href="/year/gender/">View All</a>
+          </div>
+        </div>
+        <div>
+          <h2>Top 100 Baby Names By Year</h2>
+          <ul>
+            <li><a href="/year/">NAME</a></li>
+            <li><a href="/year/">NAME</a></li>
+            <li><a href="/year/">NAME</a></li>
+            <li><a href="/year/">NAME</a></li>
+            <li><a href="/year/">NAME</a></li>
+          </ul>
+        </div>
+      </main>
     </div>
   );
 }
