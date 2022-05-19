@@ -43,3 +43,18 @@ table tr:nth-child(even) {
   }
 }
 
+ul {
+  list-style-type: none;  
+}
+
+li {
+  display: inline;
+  padding: 10px 30px;
+  margin-right: 20px; 
+  background-color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}

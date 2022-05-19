@@ -1,3 +1,5 @@
+import YearLinks from '../../components/YearLinks';
+
 function Year() {
   return (
     <>
@@ -82,33 +84,15 @@ function Year() {
       </div>
       <div>
         <h2>Top 100 Baby Names By Year</h2>
-        <ul>
-          <li><a href="/year/">NAME</a></li>
-          <li><a href="/year/">NAME</a></li>
-          <li><a href="/year/">NAME</a></li>
-          <li><a href="/year/">NAME</a></li>
-          <li><a href="/year/">NAME</a></li>
-        </ul>
+        <YearLinks />
       </div>
       <div>
         <h2>Top 100 Girls Names By Year</h2>
-        <ul>
-          <li><a href="/year/">NAME</a></li>
-          <li><a href="/year/">NAME</a></li>
-          <li><a href="/year/">NAME</a></li>
-          <li><a href="/year/">NAME</a></li>
-          <li><a href="/year/">NAME</a></li>
-        </ul>
+        <YearLinks />
       </div>
       <div>
         <h2>Top 100 Boys Names By Year</h2>
-        <ul>
-          <li><a href="/year/">NAME</a></li>
-          <li><a href="/year/">NAME</a></li>
-          <li><a href="/year/">NAME</a></li>
-          <li><a href="/year/">NAME</a></li>
-          <li><a href="/year/">NAME</a></li>
-        </ul>
+        <YearLinks />
       </div>
     </>
   );
