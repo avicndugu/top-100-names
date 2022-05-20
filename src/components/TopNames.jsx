@@ -1,17 +1,14 @@
-const TopNames = () => {
+const TopNames = (names) => {
+  console.log(names)
+  console.log(names.names)
+  console.log(typeof(names))
   return (
+
     <table>
       <tbody>
-        <tr><td>1. NAME</td></tr>
-        <tr><td>2. NAME</td></tr>
-        <tr><td>3. NAME</td></tr>
-        <tr><td>4. NAME</td></tr>
-        <tr><td>5. NAME</td></tr>
-        <tr><td>6. NAME</td></tr>
-        <tr><td>7. NAME</td></tr>
-        <tr><td>8. NAME</td></tr>
-        <tr><td>9. NAME</td></tr>
-        <tr><td>10. NAME</td></tr>
+        {names.names.map((item) => (
+          <tr><td>{item.name}</td></tr>
+        ))}
       </tbody>
     </table>
   )

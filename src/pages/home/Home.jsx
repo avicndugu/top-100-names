@@ -74,15 +74,9 @@ function Home() {
           <h1>Top 100 Baby Names in 2021</h1>
           <div className="Row">
             <div className="Column">
-              {data.map((item) => (
-                <p>{item.name}</p>
-              ))}
-              <TopNames name = { data } />
+              <TopNames names = { data } />
             </div>
             <div className="Column">
-              {data.map((item) => (
-                <p>{item.name}</p>
-              ))}
               <TopNames names = { data }/>
               <a href="/year/gender/">View All</a>
             </div>
@@ -91,12 +85,12 @@ function Home() {
         <div className="Row">
           <div className="Column">
             <h2>Top 100 Baby Boys Names in 2021</h2>
-            <TopNames name = { data }/>            
+            <TopNames names = { data.filter((name) => name.gender === "M") }/>            
               <a href="/years/gender/">View All</a>
           </div>
           <div className="Column">
             <h2>Top 100 Baby Girls Names in 2021</h2>
-            <TopNames name = { data }/>
+            <TopNames names = { data.filter((name) => name.gender === "F") }/>
             <a href="/year/gender/">View All</a>
           </div>
         </div>
