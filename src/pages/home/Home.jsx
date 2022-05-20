@@ -1,5 +1,8 @@
 import YearLinks from '../../components/YearLinks';
 import TopNames from '../../components/TopNames';
+//import SplitTop from '../../components/SplitTop';
+import HalfTop from '../../components/HalfTop';
+
 import {useState, useEffect} from "react";
 
 function useFetch(url) {
@@ -72,10 +75,10 @@ function Home() {
           <h1>Top 100 Baby Names in 2021</h1>
           <div className="Row">
             <div className="Column">
-              <TopNames names = { data } gender = "all" />
+              <HalfTop names = { data } gender = "all" even={false} />
             </div>
             <div className="Column">
-              <TopNames names = { data } gender = "all" />
+              <HalfTop names = { data } gender = "all" even={true} />
               <a href="/year/gender/">View All</a>
             </div>
           </div>
