@@ -1,7 +1,7 @@
 import YearLinks from '../../components/YearLinks';
 import TopNames from '../../components/TopNames';
-//import SplitTop from '../../components/SplitTop';
 import HalfTop from '../../components/HalfTop';
+import { Link } from 'react-router-dom';
 
 import {useState, useEffect} from "react";
 
@@ -21,7 +21,7 @@ function useFetch(url) {
       }
     };
     fetchData();
-  },[]);
+  },[url]);
   return[loadingData, data];
 }
 
@@ -46,7 +46,7 @@ function Home() {
           <div className="Column">
             <h2>Top 100 Baby Boys Names in 2021</h2>
             <p>Data is loading...</p>           
-              <a href="/years/gender/">View All</a>
+            <a href="/years/gender/">View All</a>
           </div>
           <div className="Column">
             <h2>Top 100 Baby Girls Names in 2021</h2>
@@ -79,7 +79,7 @@ function Home() {
             </div>
             <div className="Column">
               <HalfTop names = { data } gender = "all" even={true} />
-              <a href="/year/gender/">View All</a>
+              <Link className="Link" to="/year/gender/">View All</Link>
             </div>
           </div>
         </div>

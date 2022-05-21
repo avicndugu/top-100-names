@@ -56,5 +56,8 @@ li {
 
 a {
   text-decoration: none;
+}
+
+a.button {
   color: #fff;
 }
