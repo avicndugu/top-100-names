@@ -75,10 +75,10 @@ function Home() {
           <h1>Top 100 Baby Names in 2021</h1>
           <div className="Row">
             <div className="Column">
-              <HalfTop names = { data } gender = "all" even={false} />
+              <HalfTop names = { data } gender = "all" even={false} showall={false} />
             </div>
             <div className="Column">
-              <HalfTop names = { data } gender = "all" even={true} />
+              <HalfTop names = { data } gender = "all" even={true} showall={false} />
               <Link className="Link" to="/year/gender/">View All</Link>
             </div>
           </div>
@@ -86,12 +86,12 @@ function Home() {
         <div className="Row">
           <div className="Column">
             <h2>Top 100 Baby Boys Names in 2021</h2>
-            <TopNames names = { data.filter((name) => name.gender === "M") } gender = "m" />            
+            <TopNames names = { data.filter((name) => name.gender === "M") } gender = "m" showall= { true }/>            
               <a href="/years/gender/">View All</a>
           </div>
           <div className="Column">
             <h2>Top 100 Baby Girls Names in 2021</h2>
-            <TopNames names = { data.filter((name) => name.gender === "F") }  gender = "f" />
+            <TopNames names = { data.filter((name) => name.gender === "F") }  gender = "f" showall= {true} />
             <a href="/year/gender/">View All</a>
           </div>
         </div>
