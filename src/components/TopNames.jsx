@@ -1,6 +1,7 @@
 import{ useState } from 'react';
 const TopNames = (props) => {
 const [seeAll, setSeeAll] = useState(false);
+  console.log(seeAll)
   return (
     <>
       <table>

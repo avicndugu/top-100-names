@@ -1,6 +1,7 @@
 import YearLinks from '../../components/YearLinks';
 import TopNames from '../../components/TopNames';
 import HalfTop from '../../components/HalfTop';
+import SplitTable from '../../components/SplitTable';
 import { Link } from 'react-router-dom';
 
 import {useState, useEffect} from "react";
@@ -73,14 +74,7 @@ function Home() {
       <>
         <div>
           <h1>Top 100 Baby Names in 2021</h1>
-          <div className="Row">
-            <div className="Column">
-              <HalfTop names = { data } gender = "all" even={false} />
-            </div>
-            <div className="Column">
-              <HalfTop names = { data } gender = "all" even={true} />
-            </div>
-          </div>
+          <SplitTable names= { data }/>
         </div>
         <div className="Row">
           <div className="Column">
