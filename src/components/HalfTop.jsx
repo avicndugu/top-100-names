@@ -1,39 +1,34 @@
-import{ useState } from 'react';
-
-
 const SplitTop = (props) => {
-  const [seeAll, setSeeAll] = useState(false);
-  console.log(seeAll)
-  const namesList = props.names.map((item, index) => {
-    return(item)
-  });
-  console.log(namesList)
-
-  return (
-    <tbody>
-      {
-        props.names.map((item, index) => {
-          if(!props.seeall){
-            if(index < 25 && props.even===false){
-              return(<tr key={`${props.gender}-${index}`}><td>{`${index+1}`}. {item.name}</td></tr>)
-            }else {
-              if(index >= 25 && index<50 && props.even===true){
-                return(<tr key={`${props.gender}-${index}`}><td>{`${index+1}`}. {item.name}</td></tr>)
-              }
-            }
-          } else {
-            if(index < props.names.length/2 && props.even===false){
-              return(<tr key={`${props.gender}-${index}`}><td>{`${index+1}`}. {item.name}</td></tr>)
-            }else {
-              if(index >= props.names.length/2 && props.even===true){
-                return(<tr key={`${props.gender}-${index}`}><td>{`${index+1}`}. {item.name}</td></tr>)
-              }
-            }
-          }
-        })
-      }
-    </tbody>
-  )
+  if(!props.seeall){
+    if(!props.even){
+      return (
+        props.firstQuarter.map((item) => (
+          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+        ))
+      )
+    } else {
+      return (
+        props.secondQuarter.map((item) => (
+          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+        ))
+      )
+    }
+    
+  } else {
+    if(!props.even){
+      return(
+        props.firstHalf.map((item) => (
+          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+        ))
+      )
+    } else {
+      return (
+        props.secondHalf.map((item) => (
+          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+        ))
+      )
+    }
+  }
 }
 
 

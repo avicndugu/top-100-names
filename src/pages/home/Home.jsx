@@ -1,9 +1,6 @@
 import YearLinks from '../../components/YearLinks';
 import TopNames from '../../components/TopNames';
-import HalfTop from '../../components/HalfTop';
 import SplitTable from '../../components/SplitTable';
-import { Link } from 'react-router-dom';
-
 import {useState, useEffect} from "react";
 
 function useFetch(url) {
