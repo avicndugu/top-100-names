@@ -23,7 +23,7 @@ table {
   width: 100%;
 }
 
-table > tr > td {
+table tr td {
   padding: 10px 15px;
 }
 table tr:nth-child(odd) {
@@ -56,5 +56,8 @@ li {
 
 a {
   text-decoration: none;
+}
+
+a.button {
   color: #fff;
 }
