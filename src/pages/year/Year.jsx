@@ -1,6 +1,7 @@
 import YearLinks from '../../components/YearLinks';
 import SplitTable from '../../components/SplitTable';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 function useFetch(url) {
   const [loadingData, setLoadingData] = useState(false);
@@ -26,11 +27,12 @@ function useFetch(url) {
 function Year() {
   const [isDataLoading, data] = useFetch('https://avicndugu.github.io/top-100-names/yob2021.json');
   console.log(data);
+  let params = useParams();
   if (isDataLoading || !data){
     return (
       <>
         <div>
-          <h1>Top 100 Baby Names in 2021</h1>
+          <h1>Top 100 Baby Names in { params.year }</h1>
           <div className="Row">
             <div className="Column">
               <p>Content is loading... </p>
@@ -47,12 +49,12 @@ function Year() {
     return (
       <>
         <div>
-          <h1>Top 100 Baby Names in 2021</h1>
+          <h1>Top 100 Baby Names in { params.year }</h1>
           <SplitTable names= { data }/>
         </div>
         <div className="Row">
           <div className="Column">
-            <h2>Top 100 Baby Boys Names in 2021</h2>
+            <h2>Top 100 Baby Boys Names in { params.year }</h2>
             <table>
               <tr><td>1. NAME</td></tr>
               <tr><td>2. NAME</td></tr>
@@ -68,7 +70,7 @@ function Year() {
               <a href="/years/gender/">View All</a>
           </div>
           <div className="Column">
-            <h2>Top 100 Baby Girls Names in 2021</h2>
+            <h2>Top 100 Baby Girls Names in { params.year }</h2>
             <table>
               <tr><td>1. NAME</td></tr>
               <tr><td>2. NAME</td></tr>
