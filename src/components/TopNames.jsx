@@ -12,7 +12,9 @@ const [seeAll, setSeeAll] = useState(false);
                 return(<tr key={`${props.gender}-${index}`}><td>{`${index+1}`}. {item.name}</td></tr>)
               }
             } else {
-              return(<tr key={`${props.gender}-${index}`}><td>{`${index+1}`}. {item.name}</td></tr>)
+              if(index<100){
+                return(<tr key={`${props.gender}-${index}`}><td>{`${index+1}`}. {item.name}</td></tr>)
+              }
             }
           })
           }
