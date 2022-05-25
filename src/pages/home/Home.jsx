@@ -25,7 +25,9 @@ function useFetch(url) {
 
 function Home() {
   const [isDataLoading, data] = useFetch('https://avicndugu.github.io/top-100-names/yob2021.json');
-
+  const girls = data.filter((name) => name.gender === "M");
+  const boys = data.filter((name) => name.gender === "F");
+  
   if (isDataLoading || !data){
     return (
       <>
@@ -82,11 +84,11 @@ function Home() {
         <div className="Row">
           <div className="Column">
             <h2>Top 100 Baby Boys Names in 2021</h2>
-            <TopNames names = { data.filter((name) => name.gender === "M") } gender = "m" />            
+            <TopNames names = { boys } gender = "m" />            
           </div>
           <div className="Column">
             <h2>Top 100 Baby Girls Names in 2021</h2>
-            <TopNames names = { data.filter((name) => name.gender === "F") }  gender = "f" />
+            <TopNames names = { girls }  gender = "f" />
           </div>
         </div>
         <div>
