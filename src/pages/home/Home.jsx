@@ -90,8 +90,13 @@ function Home() {
       newArrBoys.push(item)
       return newArrBoys;
     })
-    console.log(boys);
-    console.log(girls);
+
+    const top10girls=girls.filter(name => name.pos <= 10);
+    const top10boys=boys.filter(name => name.pos <= 10);
+    const top100girls=girls.filter(name => name.pos <= 100);
+    const top100boys=boys.filter(name => name.pos <= 100);
+
+
     return (
       <>
         <div>
@@ -101,11 +106,11 @@ function Home() {
         <div className="Row">
           <div className="Column">
             <h2>Top 100 Baby Boys Names in 2021</h2>
-            <TopNames names = { boys } gender = "m" />            
+              <TopNames names = { boys } top10 ={ top10boys } top100={ top100boys } gender = "m" />
           </div>
           <div className="Column">
             <h2>Top 100 Baby Girls Names in 2021</h2>
-            <TopNames names = { girls }  gender = "f" />
+            <TopNames names = { girls }  top10 ={ top10girls } top100={ top100girls } gender = "f" />
           </div>
         </div>
         <div>
