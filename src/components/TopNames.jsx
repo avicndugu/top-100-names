@@ -1,26 +1,37 @@
-import{ useState } from 'react';
 const TopNames = (props) => {
-const [seeAll, setSeeAll] = useState(false);
-  console.log(seeAll)
-  return (
-    <>
-      <table>
-        <tbody>
-          {props.names.map((item, index) => {
-            if(!seeAll){
-              if(index < 10){
-                return(<tr key={`${props.gender}-${index}`}><td>{`${index+1}`}. {item.name}</td></tr>)
-              }
-            } else {
-              return(<tr key={`${props.gender}-${index}`}><td>{`${index+1}`}. {item.name}</td></tr>)
-            }
-          })
-          }
-        </tbody>
-      </table>
-      <button onClick={()=> setSeeAll(true)}>View All</button>
-    </>
-  )
+  if(!props.seeall){
+    if(props.gender=== "m"){
+      return (
+        props.top10.map((item) => (
+          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+        ))
+      )
+    } else {
+      if (props.gender==="f"){
+        return (
+          props.top10.map((item) => (
+            <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+          ))
+        )
+      }
+    }
+  } else {
+    if(props.gender=== "m"){
+      return (
+        props.top100.map((item) => (
+          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+        ))
+      )
+    } else {
+      if (props.gender==="f"){
+        return (
+          props.top100.map((item) => (
+            <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+          ))
+        )
+      }
+    }
+  }
 }
 
 export default TopNames;
