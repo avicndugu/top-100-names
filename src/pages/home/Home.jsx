@@ -25,7 +25,9 @@ function useFetch(url) {
 
 function Home() {
   const [isDataLoading, data] = useFetch('https://avicndugu.github.io/top-100-names/yob2021.json');
-  
+  const [seeAllGirls, setSeeAllGirls] = useState(false);
+  const [seeAllBoys, setSeeAllBoys] = useState(false);
+
   if (isDataLoading || !data){
     return (
       <>
@@ -106,11 +108,21 @@ function Home() {
         <div className="Row">
           <div className="Column">
             <h2>Top 100 Baby Boys Names in 2021</h2>
-              <TopNames names = { boys } top10 ={ top10boys } top100={ top100boys } gender = "m" />
+            <table>
+              <tbody>
+                <TopNames names = { boys } top10 ={ top10boys } top100={ top100boys } gender = "m" seeall={ seeAllBoys } />
+              </tbody>
+            </table>
+            <button onClick={()=> setSeeAllBoys(true)}>View All</button>
           </div>
           <div className="Column">
             <h2>Top 100 Baby Girls Names in 2021</h2>
-            <TopNames names = { girls }  top10 ={ top10girls } top100={ top100girls } gender = "f" />
+            <table>
+              <tbody>
+                <TopNames names = { girls }  top10 ={ top10girls } top100={ top100girls } gender = "f" seeall={ seeAllGirls } />
+              </tbody>
+            </table>
+            <button onClick={()=> setSeeAllGirls(true)}>View All</button>
           </div>
         </div>
         <div>
