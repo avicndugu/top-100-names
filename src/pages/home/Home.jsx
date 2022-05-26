@@ -25,8 +25,6 @@ function useFetch(url) {
 
 function Home() {
   const [isDataLoading, data] = useFetch('https://avicndugu.github.io/top-100-names/yob2021.json');
-  const girls = data.filter((name) => name.gender === "M");
-  const boys = data.filter((name) => name.gender === "F");
   
   if (isDataLoading || !data){
     return (
@@ -75,6 +73,25 @@ function Home() {
       </>
     )
   } else {
+      const newArrGirls= [];
+      const newArrBoys= [];
+
+
+    const girls = data.filter((name) => name.gender === "F");
+    girls.forEach((item, index) =>{
+      item.pos = index + 1;
+      newArrGirls.push(item)
+      return newArrGirls;
+    })
+
+    const boys = data.filter((name) => name.gender === "M");
+    boys.forEach((item, index) =>{
+      item.pos = index + 1;
+      newArrBoys.push(item)
+      return newArrBoys;
+    })
+    console.log(boys);
+    console.log(girls);
     return (
       <>
         <div>
