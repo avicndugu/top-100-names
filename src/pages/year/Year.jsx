@@ -1,6 +1,6 @@
 import YearLinks from '../../components/YearLinks';
 import SplitTable from '../../components/SplitTable';
-import TopNames from '../../components/TopNames';
+import MaleFemaleLists from '../../components/MaleFemaleLists';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -28,6 +28,7 @@ function useFetch(url) {
 function Year() {
   let params = useParams();
   const [isDataLoading, data] = useFetch(`https://avicndugu.github.io/top-100-names/yob${params.year}.json`);
+
   if (isDataLoading || !data){
     return (
       <>
@@ -53,31 +54,24 @@ function Year() {
           <SplitTable names= { data }/>
         </div>
         <div className="Row">
-          <div className="Column">
-            <h2>Top 100 Baby Boys Names in { params.year }</h2>
-            <TopNames names = { data.filter((name) => name.gender === "M") } gender = "m" />
-          </div>
-          <div className="Column">
-            <h2>Top 100 Baby Girls Names in { params.year }</h2>
-            <TopNames names = { data.filter((name) => name.gender === "F") } gender = "m" />            
-          </div>
+          <MaleFemaleLists names={ data } params={ params }/>
         </div>
         <div>
           <h2>Top 100 Baby Names By Year</h2>
           <ul>
-            <YearLinks />
+            <YearLinks gender="all" />
           </ul>
         </div>
         <div>
           <h2>Top 100 Girls Names By Year</h2>
           <ul>
-            <YearLinks />
+            <YearLinks gender="f"/>
           </ul>
         </div>
         <div>
           <h2>Top 100 Boys Names By Year</h2>
           <ul>
-            <YearLinks />
+            <YearLinks gender="m"/>
           </ul>
         </div>
       </>
