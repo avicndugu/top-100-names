@@ -9,7 +9,6 @@ function MaleFemaleLists(props) {
 
   const newArrGirls= [];
   const newArrBoys= [];
-  console.log(seeAllBoys)
 
   const girls = props.names.filter((name) => name.gender === "F");
   girls.forEach((item, index) =>{
