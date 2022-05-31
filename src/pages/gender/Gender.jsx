@@ -1,5 +1,5 @@
-import YearLinks from '../../components/YearLinks';
 import SplitTable from '../../components/SplitTable';
+import AllBottomLinks from '../../components/AllBottomLinks';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -42,6 +42,7 @@ function Gender() {
               <p>Content is loading... </p>
             </div>
           </div>
+          <AllBottomLinks />
         </div>
       </>
     )
@@ -54,24 +55,7 @@ function Gender() {
             <h1>Top 100 Baby {params.gender} Names in { params.year }</h1>
             <SplitTable names= { boys }/>
           </div>
-          <div>
-            <h2>Top 100 Baby Names By Year</h2>
-            <ul>
-              <YearLinks gender="all" />
-            </ul>
-          </div>
-          <div>
-            <h2>Top 100 Girls Names By Year</h2>
-            <ul>
-              <YearLinks gender="f"/>
-            </ul>
-          </div>
-          <div>
-            <h2>Top 100 Boys Names By Year</h2>
-            <ul>
-              <YearLinks gender="m"/>
-            </ul>
-          </div>
+          <AllBottomLinks />
         </>
       );
     }
@@ -83,24 +67,7 @@ function Gender() {
             <h1>Top 100 Baby {params.gender} Names in { params.year }</h1>
             <SplitTable names= { girls }/>
           </div>
-          <div>
-            <h2>Top 100 Baby Names By Year</h2>
-            <ul>
-              <YearLinks gender="all" />
-            </ul>
-          </div>
-          <div>
-            <h2>Top 100 Girls Names By Year</h2>
-            <ul>
-              <YearLinks gender="f"/>
-            </ul>
-          </div>
-          <div>
-            <h2>Top 100 Boys Names By Year</h2>
-            <ul>
-              <YearLinks gender="m"/>
-            </ul>
-          </div>
+          <AllBottomLinks />
         </>
       );
     }
