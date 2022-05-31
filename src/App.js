@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={ <Home /> } />
           <Route path=":year" element= { <Year /> }/>
-          <Route path="year/gender" element={ <Gender /> } />
+          <Route path=":year/gender" element={ <Gender /> } />
           <Route path="*" element={ <p>Theres nothing here</p> } />
         </Routes>
         

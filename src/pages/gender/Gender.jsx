@@ -1,6 +1,7 @@
 import YearLinks from '../../components/YearLinks';
 import SplitTable from '../../components/SplitTable';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 
 function useFetch(url) {
@@ -24,7 +25,9 @@ function useFetch(url) {
 }
 
 function Gender() {
-  const [isDataLoading, data] = useFetch(`https://avicndugu.github.io/top-100-names/yob2020.json`);
+  let params = useParams();
+
+  const [isDataLoading, data] = useFetch(`https://avicndugu.github.io/top-100-names/yob${params.year}.json`);
 
   if (isDataLoading || !data){
     return (
