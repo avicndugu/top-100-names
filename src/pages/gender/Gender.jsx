@@ -33,7 +33,7 @@ function Gender() {
     return (
       <>
         <div>
-          <h1>Top 100 {params.gender} Names in { params.year }</h1>
+          <h1>Top 100 { (params.gender).replace(/^\w/, (firstLetter) => firstLetter.toUpperCase()) } Names in { params.year }</h1>
           <div className="Row">
             <div className="Column">
               <p>Content is loading... </p>
@@ -46,34 +46,31 @@ function Gender() {
         </div>
       </>
     )
-  } else {
-    if (params.gender ==="boys"){
-      const boys = data.filter((name) => name.gender ==="M");
-      return (
-        <>
-          <div>
-            <h1>Top 100 Baby {params.gender} Names in { params.year }</h1>
-            <SplitTable names= { boys }/>
-          </div>
-          <AllBottomLinks />
-        </>
-      );
-    }
-    if (params.gender ==="girls"){
-      const girls = data.filter((name) => name.gender ==="F");
-      return (
-        <>
-          <div>
-            <h1>Top 100 Baby {params.gender} Names in { params.year }</h1>
-            <SplitTable names= { girls }/>
-          </div>
-          <AllBottomLinks />
-        </>
-      );
-    }
   }
-
-  
+  if (params.gender ==="boys"){
+    const boys = data.filter((name) => name.gender ==="M");
+    return (
+      <>
+        <div>
+          <h1>Top 100 Baby { (params.gender).replace(/^\w/, (firstLetter) => firstLetter.toUpperCase()) } Names in { params.year }</h1>
+          <SplitTable names= { boys }/>
+        </div>
+        <AllBottomLinks />
+      </>
+    );
+  }
+  if (params.gender ==="girls"){
+    const girls = data.filter((name) => name.gender ==="F");
+    return (
+      <>
+        <div>
+          <h1>Top 100 Baby {params.gender} Names in { params.year }</h1>
+          <SplitTable names= { girls }/>
+        </div>
+        <AllBottomLinks />
+      </>
+    );
+  }
 }
 
 export default Gender;
