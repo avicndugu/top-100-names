@@ -55,16 +55,22 @@ function Gender() {
             <SplitTable names= { boys }/>
           </div>
           <div>
-            <h2>Top 100 Boys Names By Year</h2>
-            <YearLinks />
-          </div>
-          <div>
             <h2>Top 100 Baby Names By Year</h2>
-            <YearLinks />
+            <ul>
+              <YearLinks gender="all" />
+            </ul>
           </div>
           <div>
             <h2>Top 100 Girls Names By Year</h2>
-            <YearLinks />
+            <ul>
+              <YearLinks gender="f"/>
+            </ul>
+          </div>
+          <div>
+            <h2>Top 100 Boys Names By Year</h2>
+            <ul>
+              <YearLinks gender="m"/>
+            </ul>
           </div>
         </>
       );
@@ -78,16 +84,22 @@ function Gender() {
             <SplitTable names= { girls }/>
           </div>
           <div>
-            <h2>Top 100 Boys Names By Year</h2>
-            <YearLinks />
-          </div>
-          <div>
             <h2>Top 100 Baby Names By Year</h2>
-            <YearLinks />
+            <ul>
+              <YearLinks gender="all" />
+            </ul>
           </div>
           <div>
             <h2>Top 100 Girls Names By Year</h2>
-            <YearLinks />
+            <ul>
+              <YearLinks gender="f"/>
+            </ul>
+          </div>
+          <div>
+            <h2>Top 100 Boys Names By Year</h2>
+            <ul>
+              <YearLinks gender="m"/>
+            </ul>
           </div>
         </>
       );
