@@ -1,56 +1,72 @@
 import YearLinks from '../../components/YearLinks';
+import SplitTable from '../../components/SplitTable';
+import { useState, useEffect } from 'react';
+
+
+function useFetch(url) {
+  const [loadingData, setLoadingData] = useState(false);
+  const [data, setData] = useState(null);
+  useEffect(() => { 
+    const fetchData = async() => {
+      try{
+        setLoadingData(true);
+        fetch(url)
+          .then(response => response.json())
+          .then((data) => { setData(data) })
+        setLoadingData(false);
+      } catch(error) {
+        console.log("error", error);
+      }
+    };
+    fetchData();
+  },[url]);
+  return[loadingData, data];
+}
+
 function Gender() {
-  return (
-    <>
-      <div>
-        <h1>Top 100 Baby Boys Names in 2021</h1>
-        <div className="Row">
-          <div className="Column">
-            <table>
-              <tr><td>1. NAME</td></tr>
-              <tr><td>2. NAME</td></tr>
-              <tr><td>3. NAME</td></tr>
-              <tr><td>4. NAME</td></tr>
-              <tr><td>5. NAME</td></tr>
-              <tr><td>6. NAME</td></tr>
-              <tr><td>7. NAME</td></tr>
-              <tr><td>8. NAME</td></tr>
-              <tr><td>9. NAME</td></tr>
-              <tr><td>10. NAME</td></tr>
-            </table>
-          </div>
-          <div className="Column">
-            <table>
-              <tr><td>11. NAME</td></tr>
-              <tr><td>12. NAME</td></tr>
-              <tr><td>13. NAME</td></tr>
-              <tr><td>14. NAME</td></tr>
-              <tr><td>15. NAME</td></tr>
-              <tr><td>16. NAME</td></tr>
-              <tr><td>17. NAME</td></tr>
-              <tr><td>18. NAME</td></tr>
-              <tr><td>19. NAME</td></tr>
-              <tr><td>20. NAME</td></tr>
-            </table>
-            <a href="/year/gender/">View All</a>
+  const [isDataLoading, data] = useFetch(`https://avicndugu.github.io/top-100-names/yob2020.json`);
+
+  if (isDataLoading || !data){
+    return (
+      <>
+        <div>
+          <h1>Top 100 Boys Names in 2020</h1>
+          <div className="Row">
+            <div className="Column">
+              <p>Content is loading... </p>
+            </div>
+            <div className="Column">
+              <p>Content is loading... </p>
+            </div>
           </div>
         </div>
-      </div>
-      <div>
-      <div>
-        <h2>Top 100 Boys Names By Year</h2>
-        <YearLinks />
-      </div>
-        <h2>Top 100 Baby Names By Year</h2>
-        <YearLinks />
-      </div>
-      <div>
-        <h2>Top 100 Girls Names By Year</h2>
-        <YearLinks />
-      </div>
-      
-    </>
-  );
+      </>
+    )
+  } else {
+    return (
+      <>
+        <div>
+          <h1>Top 100 Baby Boys Names in 2021</h1>
+          <SplitTable names= { data }/>
+        </div>
+        <div>
+          <h2>Top 100 Boys Names By Year</h2>
+          <YearLinks />
+        </div>
+        <div>
+          <h2>Top 100 Baby Names By Year</h2>
+          <YearLinks />
+        </div>
+        <div>
+          <h2>Top 100 Girls Names By Year</h2>
+          <YearLinks />
+        </div>
+        
+      </>
+    );
+  }
+
+  
 }
 
 export default Gender;
