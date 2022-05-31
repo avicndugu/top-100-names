@@ -64,7 +64,7 @@ function Gender() {
     return (
       <>
         <div>
-          <h1>Top 100 Baby {params.gender} Names in { params.year }</h1>
+          <h1>Top 100 Baby { (params.gender).replace(/^\w/, (firstLetter) => firstLetter.toUpperCase()) } Names in { params.year }</h1>
           <SplitTable names= { girls }/>
         </div>
         <AllBottomLinks />
