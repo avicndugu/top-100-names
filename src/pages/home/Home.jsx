@@ -1,6 +1,7 @@
-import YearLinks from '../../components/YearLinks';
 import TopNames from '../../components/TopNames';
 import SplitTable from '../../components/SplitTable';
+import AllBottomLinks from '../../components/AllBottomLinks';
+
 import {useState, useEffect} from "react";
 
 function useFetch(url) {
@@ -54,24 +55,7 @@ function Home() {
             <a href="/year/gender/">View All</a>
           </div>
         </div>
-        <div>
-          <h2>Top 100 Baby Names By Year</h2>
-          <ul>
-            <YearLinks />
-          </ul>
-        </div>
-        <div>
-          <h2>Top 100 Girls Names By Year</h2>
-          <ul>
-            <YearLinks />
-          </ul>
-        </div>
-        <div>
-          <h2>Top 100 Boys Names By Year</h2>
-          <ul>
-            <YearLinks />
-          </ul>
-        </div>
+        <AllBottomLinks />
       </>
     )
   } else {
@@ -125,24 +109,7 @@ function Home() {
             <button onClick={()=> setSeeAllGirls(true)}>View All</button>
           </div>
         </div>
-        <div>
-          <h2>Top 100 Baby Names By Year</h2>
-          <ul>
-            <YearLinks />
-          </ul>
-        </div>
-        <div>
-          <h2>Top 100 Girls Names By Year</h2>
-          <ul>
-            <YearLinks />
-          </ul>
-        </div>
-        <div>
-          <h2>Top 100 Boys Names By Year</h2>
-          <ul>
-            <YearLinks />
-          </ul>
-        </div>
+        <AllBottomLinks />
       </>
     );
 

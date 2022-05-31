@@ -1,6 +1,6 @@
-import YearLinks from '../../components/YearLinks';
 import SplitTable from '../../components/SplitTable';
 import MaleFemaleLists from '../../components/MaleFemaleLists';
+import AllBottomLinks from '../../components/AllBottomLinks';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -42,6 +42,7 @@ function Year() {
               <p>Content is loading... </p>
             </div>
           </div>
+          <AllBottomLinks />
         </div>
       </>
     )
@@ -56,24 +57,7 @@ function Year() {
         <div className="Row">
           <MaleFemaleLists names={ data } params={ params }/>
         </div>
-        <div>
-          <h2>Top 100 Baby Names By Year</h2>
-          <ul>
-            <YearLinks gender="all" />
-          </ul>
-        </div>
-        <div>
-          <h2>Top 100 Girls Names By Year</h2>
-          <ul>
-            <YearLinks gender="f"/>
-          </ul>
-        </div>
-        <div>
-          <h2>Top 100 Boys Names By Year</h2>
-          <ul>
-            <YearLinks gender="m"/>
-          </ul>
-        </div>
+        <AllBottomLinks />
       </>
     );
   }
