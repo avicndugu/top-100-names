@@ -33,7 +33,7 @@ function Gender() {
     return (
       <>
         <div>
-          <h1>Top 100 Boys Names in { params.year }</h1>
+          <h1>Top 100 {params.gender} Names in { params.year }</h1>
           <div className="Row">
             <div className="Column">
               <p>Content is loading... </p>
@@ -46,27 +46,52 @@ function Gender() {
       </>
     )
   } else {
-    return (
-      <>
-        <div>
-          <h1>Top 100 Baby Boys Names in { params.year }</h1>
-          <SplitTable names= { data }/>
-        </div>
-        <div>
-          <h2>Top 100 Boys Names By Year</h2>
-          <YearLinks />
-        </div>
-        <div>
-          <h2>Top 100 Baby Names By Year</h2>
-          <YearLinks />
-        </div>
-        <div>
-          <h2>Top 100 Girls Names By Year</h2>
-          <YearLinks />
-        </div>
-        
-      </>
-    );
+    if (params.gender ==="boys"){
+      const boys = data.filter((name) => name.gender ==="M");
+      return (
+        <>
+          <div>
+            <h1>Top 100 Baby {params.gender} Names in { params.year }</h1>
+            <SplitTable names= { boys }/>
+          </div>
+          <div>
+            <h2>Top 100 Boys Names By Year</h2>
+            <YearLinks />
+          </div>
+          <div>
+            <h2>Top 100 Baby Names By Year</h2>
+            <YearLinks />
+          </div>
+          <div>
+            <h2>Top 100 Girls Names By Year</h2>
+            <YearLinks />
+          </div>
+        </>
+      );
+    }
+    if (params.gender ==="girls"){
+      const girls = data.filter((name) => name.gender ==="F");
+      return (
+        <>
+          <div>
+            <h1>Top 100 Baby {params.gender} Names in { params.year }</h1>
+            <SplitTable names= { girls }/>
+          </div>
+          <div>
+            <h2>Top 100 Boys Names By Year</h2>
+            <YearLinks />
+          </div>
+          <div>
+            <h2>Top 100 Baby Names By Year</h2>
+            <YearLinks />
+          </div>
+          <div>
+            <h2>Top 100 Girls Names By Year</h2>
+            <YearLinks />
+          </div>
+        </>
+      );
+    }
   }
 
   
