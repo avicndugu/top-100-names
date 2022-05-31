@@ -33,7 +33,7 @@ function Gender() {
     return (
       <>
         <div>
-          <h1>Top 100 Boys Names in 2020</h1>
+          <h1>Top 100 Boys Names in { params.year }</h1>
           <div className="Row">
             <div className="Column">
               <p>Content is loading... </p>
@@ -49,7 +49,7 @@ function Gender() {
     return (
       <>
         <div>
-          <h1>Top 100 Baby Boys Names in 2021</h1>
+          <h1>Top 100 Baby Boys Names in { params.year }</h1>
           <SplitTable names= { data }/>
         </div>
         <div>
