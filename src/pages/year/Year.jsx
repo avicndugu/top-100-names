@@ -1,29 +1,8 @@
 import SplitTable from '../../components/SplitTable';
 import MaleFemaleLists from '../../components/MaleFemaleLists';
 import AllBottomLinks from '../../components/AllBottomLinks';
-import { useState, useEffect } from 'react';
+import useFetch from '../../functions/useFetch';
 import { useParams } from 'react-router-dom';
-
-function useFetch(url) {
-  const [loadingData, setLoadingData] = useState(false);
-  const [data, setData] = useState(null);
-  useEffect(() => { 
-    const fetchData = async() => {
-      try{
-        setLoadingData(true);
-        fetch(url)
-          .then(response => response.json())
-          .then((data) => { setData(data) })
-        setLoadingData(false);
-      } catch(error) {
-        console.log("error", error);
-      }
-    };
-    fetchData();
-  },[url]);
-  return[loadingData, data];
-}
-
 
 function Year() {
   let params = useParams();
