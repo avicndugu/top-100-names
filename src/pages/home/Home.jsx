@@ -1,28 +1,8 @@
 import TopNames from '../../components/TopNames';
 import SplitTable from '../../components/SplitTable';
 import AllBottomLinks from '../../components/AllBottomLinks';
-
-import {useState, useEffect} from "react";
-
-function useFetch(url) {
-  const [loadingData, setLoadingData] = useState(false);
-  const [data, setData] = useState(null);
-  useEffect(() => { 
-    const fetchData = async() => {
-      try{
-        setLoadingData(true);
-        fetch(url)
-          .then(response => response.json())
-          .then((data) => { setData(data) })
-        setLoadingData(false);
-      } catch(error) {
-        console.log("error", error);
-      }
-    };
-    fetchData();
-  },[url]);
-  return[loadingData, data];
-}
+import useFetch from '../../functions/useFetch';
+import { useState } from "react";
 
 function Home() {
   const [isDataLoading, data] = useFetch('https://avicndugu.github.io/top-100-names/yob2021.json');
@@ -59,9 +39,8 @@ function Home() {
       </>
     )
   } else {
-      const newArrGirls= [];
-      const newArrBoys= [];
-
+    const newArrGirls= [];
+    const newArrBoys= [];
 
     const girls = data.filter((name) => name.gender === "F");
     girls.forEach((item, index) =>{
@@ -81,7 +60,6 @@ function Home() {
     const top10boys=boys.filter(name => name.pos <= 10);
     const top100girls=girls.filter(name => name.pos <= 100);
     const top100boys=boys.filter(name => name.pos <= 100);
-
 
     return (
       <>
