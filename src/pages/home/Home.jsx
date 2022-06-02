@@ -1,6 +1,7 @@
 import TopNames from '../../components/TopNames';
 import SplitTable from '../../components/SplitTable';
 import AllBottomLinks from '../../components/AllBottomLinks';
+import PlaceHolder1To10 from '../../components/PlaceHolder1To10';
 import useFetch from '../../functions/useFetch';
 import { useState } from "react";
 
@@ -16,22 +17,24 @@ function Home() {
           <h1>Top 100 Baby Names in 2021</h1>
           <div className="Row">
             <div className="Column">
-              <p>Data is loading...</p>
+              <PlaceHolder1To10 />
+              <PlaceHolder1To10 />
             </div>
             <div className="Column">
-              <p>Data is loading...</p>
+              <PlaceHolder1To10 />
+              <PlaceHolder1To10 />
             </div>
           </div>
         </div>
         <div className="Row">
           <div className="Column">
             <h2>Top 100 Baby Boys Names in 2021</h2>
-            <p>Data is loading...</p>           
+              <PlaceHolder1To10 />
             <a href="/years/gender/">View All</a>
           </div>
           <div className="Column">
             <h2>Top 100 Baby Girls Names in 2021</h2>
-            <p>Data is loading...</p>
+              <PlaceHolder1To10 />
             <a href="/year/gender/">View All</a>
           </div>
         </div>
