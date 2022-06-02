@@ -4,22 +4,22 @@ const AllBottomLinks = () => {
   return( 
     <> 
       <div>
-        <h2>Top 100 Baby Names By Year</h2>
-        <ul>
+        <h2 className="text-center">Top 100 Baby Names By Year</h2>
+        <div className="bottom-links">
           <YearLinks gender="all" />
-        </ul>
+        </div>
       </div>
       <div>
-        <h2>Top 100 Girls Names By Year</h2>
-        <ul>
+        <h2 className="text-center">Top 100 Girls Names By Year</h2>
+        <div className="bottom-links">
           <YearLinks gender="f"/>
-        </ul>
+        </div>
       </div>
       <div>
-        <h2>Top 100 Boys Names By Year</h2>
-        <ul>
+        <h2 className="text-center">Top 100 Boys Names By Year</h2>
+        <div className="bottom-links">
           <YearLinks gender="m"/>
-        </ul>
+         </div>
       </div>
     </>
   )
