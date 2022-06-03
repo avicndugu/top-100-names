@@ -1,4 +1,5 @@
 import './App.css';
+import logo from './logo.png';
 import { Routes, Route} from 'react-router-dom';
 import Home from './pages/home/Home';
 import Year from './pages/year/Year';
@@ -8,7 +9,7 @@ function App() {
   return (
     <div className="Container">
       <header className="App-header">
-        <span>Top 100 Names</span>
+        <a href="/"><img src={logo} alt="Top 100 Names" height="50px"/></a>
       </header>
       <main>
         <Routes>
