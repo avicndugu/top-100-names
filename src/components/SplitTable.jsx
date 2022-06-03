@@ -18,23 +18,27 @@ function SplitTable(props) {
   const second25 = namesList.filter(name => name.pos>25 && name.pos <= 50);
 
   return(
-    <div className="Row">
-      <div className="Column">
-        <table>
-          <tbody>
-            <HalfTop firstQuarter = { first25 } firstHalf = { first50 }  gender = "all" even={false} seeall={seeAll} />
-          </tbody>
-        </table>
+    <>
+      <div className="Row">
+        <div className="Column">
+          <table>
+            <tbody>
+              <HalfTop firstQuarter = { first25 } firstHalf = { first50 }  gender = "all" even={false} seeall={seeAll} />
+            </tbody>
+          </table>
+        </div>
+        <div className="Column">
+          <table>
+            <tbody>
+              <HalfTop secondQuarter = { second25 } secondHalf= { second50 } gender = "all" even={true} seeall={seeAll} />
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div className="Column">
-        <table>
-          <tbody>
-            <HalfTop secondQuarter = { second25 } secondHalf= { second50 } gender = "all" even={true} seeall={seeAll} />
-          </tbody>
-        </table>
+      <div className="text-center Column">
         <button onClick={() => setSeeAll(true)}>See All</button>
       </div>
-    </div>
+    </>
   )
 }
 

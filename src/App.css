@@ -27,11 +27,11 @@ table tr td {
   padding: 10px 15px;
 }
 table tr:nth-child(odd) {
-  background-color: grey;
+  background-color: #da77f2;
 }
 
 table tr:nth-child(even) {
-  background-color: orange;
+  background-color: #eebefa;
 }
 
 @media(min-width: 48em){  
@@ -44,14 +44,14 @@ table tr:nth-child(even) {
 }
 
 ul {
-  list-style-type: none;  
+  /*list-style-type: none;  */
 }
 
 li {
-  display: inline;
+/*  display: inline;
   padding: 10px 30px;
   margin-right: 20px; 
-  background-color: #333;
+  background-color: #862e9c;*/
 }
 
 a {
@@ -60,4 +60,37 @@ a {
 
 a.button {
   color: #fff;
+  padding: 10px 30px;
+  background-color: #862e9c;
+  margin-right: 20px; 
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #862e9c;
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 1em;
+  margin-top: 20px;
+  width: 100%;
+}
+
+@media(min-width: 48em){  
+  button {
+    width: auto;
+    padding: 10px 100px;
+  }
+}
+
+.bottom-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
 }
