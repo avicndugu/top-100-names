@@ -27,11 +27,14 @@ table tr td {
   padding: 10px 15px;
 }
 table tr:nth-child(odd) {
-  background-color: #da77f2;
+  background-color: #eebefa;
+  /*background-color: #da77f2;*/
 }
 
 table tr:nth-child(even) {
-  background-color: #eebefa;
+  background-color: #f3d9fa;
+  /*background-color: #eebefa;*/
+
 }
 
 @media(min-width: 48em){  
@@ -41,17 +44,6 @@ table tr:nth-child(even) {
   .Column {
     flex: 1;
   }
-}
-
-ul {
-  /*list-style-type: none;  */
-}
-
-li {
-/*  display: inline;
-  padding: 10px 30px;
-  margin-right: 20px; 
-  background-color: #862e9c;*/
 }
 
 a {
