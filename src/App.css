@@ -16,7 +16,6 @@ h1 {
 
 .Column {
   padding: 10px;
-  
 }
 
 table {
@@ -32,7 +31,7 @@ table tr:nth-child(odd) {
 }
 
 table tr:nth-child(even) {
-  background-color: #f3d9fa;
+  background-color: #f8f0fc;
   /*background-color: #eebefa;*/
 
 }
