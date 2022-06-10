@@ -1,5 +1,4 @@
 import TopNames from './TopNames';
-
 import{ useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -7,19 +6,7 @@ function MaleFemaleLists(props) {
   const [seeAllGirls, setSeeAllGirls] = useState(false);
   const [seeAllBoys, setSeeAllBoys] = useState(false);
 
-  //setting seeAllGirls and seeAllBoys false if visiting after clicking one of the links
-  const location = useLocation();
 
-function UpdateViewAllState (){ 
-  useEffect(() => {
-    if (location.state !== null){
-      setSeeAllGirls(location.state.resetviewall);
-      setSeeAllBoys(location.state.resetviewall);
-    }
-  },[location.state]);
-}
-
-UpdateViewAllState();
 
   const newArrGirls= [];
   const newArrBoys= [];
@@ -43,6 +30,21 @@ UpdateViewAllState();
   const top10boys=boys.filter(name => name.pos <= 10);
   const top100girls=girls.filter(name => name.pos <= 100);
   const top100boys=boys.filter(name => name.pos <= 100);
+
+
+// setting seeAllGirls and seeAllBoys false if visiting after clicking one of bottom links
+  const location = useLocation();
+
+function UpdateViewAllState (resetstate){
+  useEffect(() => {
+    setSeeAllGirls(location.state.resetviewall);
+    setSeeAllBoys(location.state.resetviewall);
+  },[resetstate]);
+}
+
+if (location.state !== null){
+  UpdateViewAllState(location.state);
+}
 
   return(
     <>
