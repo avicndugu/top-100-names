@@ -3,12 +3,27 @@ import SplitTable from '../../components/SplitTable';
 import AllBottomLinks from '../../components/AllBottomLinks';
 import PlaceHolder1To10 from '../../components/PlaceHolder1To10';
 import useFetch from '../../functions/useFetch';
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from 'react-router-dom';
 
 function Home() {
   const [isDataLoading, data] = useFetch('https://avicndugu.github.io/top-100-names/yob2021.json');
   const [seeAllGirls, setSeeAllGirls] = useState(false);
   const [seeAllBoys, setSeeAllBoys] = useState(false);
+
+  // setting seeAllGirls and seeAllBoys false if visiting after clicking one of bottom links
+  const location = useLocation();
+
+  function UpdateViewAllState (resetstate){
+    useEffect(() => {
+      setSeeAllGirls(location.state.resetviewall);
+      setSeeAllBoys(location.state.resetviewall);
+    },[resetstate]);
+  }
+
+  if (location.state !== null){
+    UpdateViewAllState(location.state);
+  }
 
   if (isDataLoading || !data){
     return (
