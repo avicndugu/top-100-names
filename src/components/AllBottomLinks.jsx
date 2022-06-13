@@ -1,5 +1,5 @@
 import YearLinks from './YearLinks';
-
+import YearLinksPagination from './YearLinksPagination';
 const AllBottomLinks = () => {
   return( 
     <> 
@@ -8,18 +8,21 @@ const AllBottomLinks = () => {
         <div className="bottom-links">
           <YearLinks gender="all" />
         </div>
+        <YearLinksPagination />
       </div>
       <div>
         <h2 className="text-center">Top 100 Girls Names By Year</h2>
         <div className="bottom-links">
           <YearLinks gender="f"/>
         </div>
+        <YearLinksPagination />
       </div>
       <div>
         <h2 className="text-center">Top 100 Boys Names By Year</h2>
         <div className="bottom-links">
           <YearLinks gender="m"/>
          </div>
+        <YearLinksPagination />
       </div>
     </>
   )

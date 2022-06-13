@@ -36,7 +36,7 @@ function SplitTable(props) {
         </div>
       </div>
       <div className="text-center Column">
-        <button onClick={() => setSeeAll(true)}>See All</button>
+        <button onClick={() => setSeeAll(true)} className="fullwidth">See All</button>
       </div>
     </>
   )

@@ -40,7 +40,7 @@ function MaleFemaleLists(props) {
           </tbody>
         </table>
         <div className="text-center">
-          <button onClick={()=> setSeeAllBoys(true)}>View All</button>
+          <button onClick={()=> setSeeAllBoys(true)} className="fullwidth">View All</button>
         </div>
       </div>
       <div className="Column">
@@ -51,7 +51,7 @@ function MaleFemaleLists(props) {
           </tbody>
         </table>
         <div className="text-center">
-          <button onClick={()=> setSeeAllGirls(true)}>View All</button>
+          <button onClick={()=> setSeeAllGirls(true)} className="fullwidth">View All</button>
         </div>
       </div>
     </>
