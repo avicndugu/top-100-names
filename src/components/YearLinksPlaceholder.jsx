@@ -2,12 +2,10 @@ import { Link } from 'react-router-dom';
 
 const YearLinks = (props) => {
 let years = [2021, 2020, 2019, 2018];
-console.log(props.yearslist);
-
   if (props.gender === "all"){
     return (
-      props.yearslist.map((item)=>(
-        <Link className="button" to={`/${item}/girls`}>{ item.year }</Link>
+      years.map((item)=>(
+        <Link reloadDocument key={`${props.gender}-${item}`} className="button" to={`/${item}`}>{ item }</Link>
       ))
     )
   }else {
