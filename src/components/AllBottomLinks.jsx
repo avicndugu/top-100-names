@@ -38,8 +38,6 @@ const [isDataLoading, data] = useFetch('https://avicndugu.github.io/names-api/al
   //  console.log(data);
   //  console.log(data.length);
     const numberofpages = Math.floor(data.length/9) + 1;
-  //  console.log(pagenumbers);
-  //  console.log(data.length/9);
   //  const yearspage1=data.slice(0,9);
   //  console.log(yearspage1);
 

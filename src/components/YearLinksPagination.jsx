@@ -3,9 +3,6 @@ import {useState} from 'react';
   const YearLinksPagination = (props)=> {
   const pages = props.pages;
   const [pageNumber, setPageNumber] = useState(1);
-
-  console.log(pageNumber);
-  console.log(pageNumber);
   return (
     <div className="pagination">
       <button onClick={()=> {
