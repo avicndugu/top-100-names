@@ -53,22 +53,23 @@ a {
   text-decoration: none;
 }
 
-a.button {
-  color: #fff;
-  padding: 10px 30px;
+a.button, button {
   background-color: #862e9c;
+  color: #fff;
+  border: none;
+  font-size: 1em;
+}
+
+a.button {
+  padding: 10px 30px;
   margin-right: 20px; 
   margin-bottom: 10px;
   border-radius: 5px;
 }
 
-button {
-  background-color: #862e9c;
-  color: #fff;
-  border: none;
+button.fullwidth {
   padding: 10px 30px;
   border-radius: 5px;
-  font-size: 1em;
   margin-top: 20px;
   width: 100%;
 }
@@ -80,7 +81,7 @@ button {
   h2, h3 {
     font-size: 1.4em;
   }
-  button {
+  button.fullwidth {
     width: auto;
     padding: 10px 100px;
   }
@@ -95,3 +96,26 @@ button {
 .text-center {
   text-align: center;
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+
+  }
+.pagination button {
+  background-color: #fff;
+  color: #862e9c;
+  border: solid 2px #862e9c;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 10px;
+}
+
+/*@media(min-width: 48em){  
+  .pagination {
+   display: flex;
+   justify-content: center;
+
+  }
+}*/

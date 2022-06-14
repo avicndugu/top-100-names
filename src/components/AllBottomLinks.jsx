@@ -1,5 +1,6 @@
 import YearLinksPlaceholder from './YearLinksPlaceholder';
 import YearLinks from './YearLinks';
+import YearLinksPagination from './YearLinksPagination';
 import useFetch from '../functions/useFetch';
 const AllBottomLinks = () => {
 const [isDataLoading, data] = useFetch('https://avicndugu.github.io/names-api/allyears.json');
@@ -48,18 +49,21 @@ const [isDataLoading, data] = useFetch('https://avicndugu.github.io/names-api/al
           <div className="bottom-links">
             <YearLinks gender="all" yearslist={ data }/>
           </div>
+          <YearLinksPagination />
         </div>
         <div>
           <h2 className="text-center">Top 100 Girls Names By Year</h2>
           <div className="bottom-links">
             <YearLinks gender="f" yearslist={ data }/>
           </div>
+          <YearLinksPagination />
         </div>
         <div>
           <h2 className="text-center">Top 100 Boys Names By Year</h2>
           <div className="bottom-links">
             <YearLinks gender="m" yearslist={ data }/>
            </div>
+           <YearLinksPagination />
         </div>
       </>
     )
