@@ -1,9 +1,6 @@
 import { Link } from 'react-router-dom';
 
 function YearLinks(props) {
-  let years = [2021, 2020, 2019, 2018];
-  console.log(props.yearslist);
-
   if (props.gender === "all"){
     return (
       props.yearslist.map((item)=>(
