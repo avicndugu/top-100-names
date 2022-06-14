@@ -7,21 +7,21 @@ console.log(props.yearslist);
   if (props.gender === "all"){
     return (
       props.yearslist.map((item)=>(
-        <Link className="button" to={`/${item}/girls`}>{ item.year }</Link>
+        <Link reloadDocument key={`${props.gender}-${item.year}`} className="button" to={`/${item.year}`}>{ item.year }</Link>
       ))
     )
   }else {
     if (props.gender === "f"){
       return (
-        years.map((item)=>(
-          <Link reloadDocument key={`${props.gender}-${item}`} className="button" to={`/${item}/girls`}>{ item }</Link>
+        props.yearslist.map((item)=>(
+          <Link reloadDocument key={`${props.gender}-${item.year}`} className="button" to={`/${item.year}/girls`}>{ item.year }</Link>
         ))
       )
     }
     if (props.gender === "m"){
       return (
-        years.map((item)=>(
-          <Link reloadDocument key={`${props.gender}-${item}`} className="button" to={`/${item}/boys`}>{ item }</Link>
+        props.yearslist.map((item)=>(
+          <Link reloadDocument key={`${props.gender}-${item.year}`} className="button" to={`/${item.year}/boys`}>{ item.year }</Link>
         ))
       )
     }

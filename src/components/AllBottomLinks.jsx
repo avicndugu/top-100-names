@@ -52,13 +52,13 @@ const [isDataLoading, data] = useFetch('https://avicndugu.github.io/names-api/al
         <div>
           <h2 className="text-center">Top 100 Girls Names By Year</h2>
           <div className="bottom-links">
-            <YearLinks gender="f"/>
+            <YearLinks gender="f" yearslist={ data }/>
           </div>
         </div>
         <div>
           <h2 className="text-center">Top 100 Boys Names By Year</h2>
           <div className="bottom-links">
-            <YearLinks gender="m"/>
+            <YearLinks gender="m" yearslist={ data }/>
            </div>
         </div>
       </>
