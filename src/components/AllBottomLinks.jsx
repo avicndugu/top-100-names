@@ -47,16 +47,20 @@ const [pageNumber, setPageNumber] = useState(1);
   //    console.log(yearspage1);
   //  }
   // console.log(data.slice(0,pageNumber*9));
+  // console.log(data.slice((pageNumber-1)*9,pageNumber*9));
+
 
 // Cycle through the years per page
-  console.log(data.slice((pageNumber-1)*9,pageNumber*9));
+  let currentpageyears = data.slice((pageNumber-1)*9,pageNumber*9);
+  console.log(currentpageyears);
+
 
     return(
       <> 
         <div>
           <h2 className="text-center">Top 100 Baby Names By Year</h2>
           <div className="bottom-links">
-            <YearLinks gender="all" yearslist={ data }/>
+            <YearLinks gender="all" yearslist={ currentpageyears }/>
           </div>
           <div className="pagination">
             <button onClick={()=> {
