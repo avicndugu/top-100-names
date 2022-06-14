@@ -12,8 +12,12 @@
 
 h1 {
   text-align: center;
+  font-size: 1.4em;
 }
 
+h2, h3 {
+  font-size: 1.2em;
+}
 .Column {
   padding: 10px;
 }
@@ -70,6 +74,12 @@ button {
 }
 
 @media(min-width: 48em){  
+  h1 {
+    font-size: 1.7em;
+  }
+  h2, h3 {
+    font-size: 1.4em;
+  }
   button {
     width: auto;
     padding: 10px 100px;
