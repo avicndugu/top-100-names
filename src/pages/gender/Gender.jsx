@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 function Gender() {
   let params = useParams();
-  const [isDataLoading, data] = useFetch(`https://avicndugu.github.io/top-100-names/yob${params.year}.json`);
+  const [isDataLoading, data] = useFetch(`https://jekyll-json-api.netlify.app/yob${params.year}.json`);
 
   if (isDataLoading || !data){
     return (
