@@ -52,8 +52,15 @@ const [pageNumber, setPageNumber] = useState(1);
 
 // Cycle through the years per page
   let currentpageyears = data.slice((pageNumber-1)*9,pageNumber*9);
-  console.log(currentpageyears);
+//  console.log(currentpageyears);
 
+
+  let pageYears =[];
+  for (let n=1; n<=numberofpages; n++){
+    pageYears.push(data.slice((n-1)*9,n*9));
+    // console.log(data.slice((n-1)*9,n*9));
+    console.log(pageYears);
+  }
 
     return(
       <> 
