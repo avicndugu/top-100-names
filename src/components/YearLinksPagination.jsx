@@ -1,9 +1,5 @@
-import {useState} from 'react';
-
-  const YearLinksPagination = (props)=> {
-  const numberofpages = props.numberofpages;
+const YearLinksPagination = (props)=> {
   return (
-
     <div className="pagination">
       <button onClick={()=> {
         if(props.pageNumber>1){
