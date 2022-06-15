@@ -59,7 +59,7 @@ const [pageNumber, setPageNumber] = useState(1);
   for (let n=1; n<=numberofpages; n++){
     pageYears.push(data.slice((n-1)*9,n*9));
     // console.log(data.slice((n-1)*9,n*9));
-    console.log(pageYears);
+    // console.log(pageYears);
   }
 
     return(
@@ -76,12 +76,12 @@ const [pageNumber, setPageNumber] = useState(1);
               }
             }}>Newer</button>
             <div>
-              <button>1</button>
-              <button>2</button>
-              <button>3</button>
-              <button>4</button>
+              <button onClick={()=> setPageNumber(1)}>1</button>
+              <button onClick={()=> setPageNumber(2)}>2</button>
+              <button onClick={()=> setPageNumber(3)}>3</button>
+              <button onClick={()=> setPageNumber(4)}>4</button>
               <span> ... </span>
-              <button className="pagination-number">{ numberofpages }</button>
+              <button className="pagination-number" onClick={()=> setPageNumber(numberofpages)}>{ numberofpages }</button>
             </div>
             <button onClick={()=> {
               if (pageNumber<numberofpages){
