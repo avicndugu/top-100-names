@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 
 function Home() {
-  const [isDataLoading, data] = useFetch('https://avicndugu.github.io/top-100-names/yob2021.json');
+  const [isDataLoading, data] = useFetch('https://jekyll-json-api.netlify.app/yob2021.json');
   const [seeAllGirls, setSeeAllGirls] = useState(false);
   const [seeAllBoys, setSeeAllBoys] = useState(false);
 
