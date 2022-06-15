@@ -1,26 +1,26 @@
 import {useState} from 'react';
 
   const YearLinksPagination = (props)=> {
-  const pages = props.pages;
-  const [pageNumber, setPageNumber] = useState(1);
+  const numberofpages = props.numberofpages;
   return (
+
     <div className="pagination">
       <button onClick={()=> {
-        if(pageNumber>1){
-          setPageNumber(pageNumber - 1);
+        if(props.pageNumber>1){
+          props.setPageNumber(props.pageNumber - 1);
         }
       }}>Newer</button>
       <div>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>4</button>
+        <button onClick={()=> props.setPageNumber(1)}>1</button>
+        <button onClick={()=> props.setPageNumber(2)}>2</button>
+        <button onClick={()=> props.setPageNumber(3)}>3</button>
+        <button onClick={()=> props.setPageNumber(4)}>4</button>
         <span> ... </span>
-        <button className="pagination-number">{ pages }</button>
+        <button className="pagination-number" onClick={()=> props.setPageNumber(props.numberofpages)}>{ props.numberofpages }</button>
       </div>
       <button onClick={()=> {
-        if (pageNumber<pages){
-          setPageNumber(pageNumber + 1);
+        if (props.pageNumber<props.numberofpages){
+          props.setPageNumber(props.pageNumber + 1);
         }
       }}>Older</button>
     </div>
