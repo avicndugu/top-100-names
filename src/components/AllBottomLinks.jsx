@@ -33,35 +33,9 @@ const [pageNumber, setPageNumber] = useState(1);
       </>
     )
   } else {
-
-    // console.log(data);
-    // console.log(data[0].year);
-    // console.log(data[0].name);
-  //  console.log(data);
-  //  console.log(data.length);
     const numberofpages = Math.floor(data.length/9) + 1;
-  //  const yearspage1=data.slice(0,9);
-    
-  //  for (let n=1; n<=numberofpages; n++) {
-  //    const yearspage1=data.slice(0,n*9);
-  //    console.log(yearspage1);
-  //  }
-  // console.log(data.slice(0,pageNumber*9));
-  // console.log(data.slice((pageNumber-1)*9,pageNumber*9));
-
-
-// Cycle through the years per page
-  let currentpageyears = data.slice((pageNumber-1)*9,pageNumber*9);
-//  console.log(currentpageyears);
-
-
-  let pageYears =[];
-  for (let n=1; n<=numberofpages; n++){
-    pageYears.push(data.slice((n-1)*9,n*9));
-    // console.log(data.slice((n-1)*9,n*9));
-    // console.log(pageYears);
-  }
-
+    // Cycle through the years per page
+    let currentpageyears = data.slice((pageNumber-1)*9,pageNumber*9);
     return(
       <> 
         <div>
