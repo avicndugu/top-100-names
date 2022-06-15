@@ -2,8 +2,14 @@ import YearLinksPlaceholder from './YearLinksPlaceholder';
 import YearLinks from './YearLinks';
 import YearLinksPagination from './YearLinksPagination';
 import useFetch from '../functions/useFetch';
+import {useState} from 'react';
+
 const AllBottomLinks = () => {
 const [isDataLoading, data] = useFetch('https://avicndugu.github.io/names-api/allyears.json');
+
+const [pageNumber, setPageNumber] = useState(1);
+const [pageNumberBoys, setPageNumberBoys] = useState(1);
+const [pageNumberGirls, setPageNumberGirls] = useState(1);
 
   if (isDataLoading || !data){
     return( 
@@ -29,41 +35,36 @@ const [isDataLoading, data] = useFetch('https://avicndugu.github.io/names-api/al
       </>
     )
   } else {
-
-    // console.log(data);
-    // console.log(data[0].year);
-    // console.log(data[0].name);
-  //  console.log(data);
-  //  console.log(data.length);
-  //  const pagenumbers = Math.floor(data.length/9) + 1;
-
-  //  console.log(pagenumbers);
-  //  console.log(data.length/9);
-  //  const yearspage1=data.slice(0,9);
-  //  console.log(yearspage1);
+    const numberofpages = Math.floor(data.length/9) + 1;
+    // Cycle through the years per page
+    let currentpageyears = data.slice((pageNumber-1)*9,pageNumber*9);
+    let currentpageyearsboys = data.slice((pageNumberBoys-1)*9,pageNumberBoys*9);
+    let currentpageyearsgirls = data.slice((pageNumberGirls-1)*9,pageNumberGirls*9);
 
     return(
       <> 
         <div>
           <h2 className="text-center">Top 100 Baby Names By Year</h2>
           <div className="bottom-links">
-            <YearLinks gender="all" yearslist={ data }/>
+            <YearLinks gender="all" yearslist={ currentpageyears }/>
           </div>
-          <YearLinksPagination />
+          <YearLinksPagination numberofpages={ numberofpages } pageNumber={ pageNumber } setPageNumber={ setPageNumber }/>
         </div>
+        
         <div>
           <h2 className="text-center">Top 100 Girls Names By Year</h2>
           <div className="bottom-links">
-            <YearLinks gender="f" yearslist={ data }/>
+            <YearLinks gender="f" yearslist={ currentpageyearsgirls }/>
           </div>
-          <YearLinksPagination />
+          <YearLinksPagination numberofpages={ numberofpages } pageNumber={ pageNumberGirls } setPageNumber={ setPageNumberGirls }/>
         </div>
+
         <div>
           <h2 className="text-center">Top 100 Boys Names By Year</h2>
           <div className="bottom-links">
-            <YearLinks gender="m" yearslist={ data }/>
+            <YearLinks gender="m" yearslist={ currentpageyearsboys }/>
            </div>
-           <YearLinksPagination />
+          <YearLinksPagination numberofpages={ numberofpages } pageNumber={ pageNumberBoys } setPageNumber={ setPageNumberBoys }/>
         </div>
       </>
     )
