@@ -1,6 +1,6 @@
 function ViewAllButton(props) {
-console.log(props.viewButton);
-  if(props.viewButton){
+console.log(props.viewAllButton);
+  if(props.viewAllButton){
     return (
       <div className="text-center">
         <button onClick={

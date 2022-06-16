@@ -62,7 +62,7 @@ console.log(viewAllBoysButton);
             <TopNames top10 ={ top10boys }  top100={ top100boys } gender = "m" seeall={ seeAllBoys } />
           </tbody>
         </table>
-        <ViewAllButton setSeeAll={ setSeeAllBoys } viewButton={ viewAllBoysButton } setViewAllButton={ setViewAllBoysButton } />
+        <ViewAllButton setSeeAll={ setSeeAllBoys } viewAllButton={ viewAllBoysButton } setViewAllButton={ setViewAllBoysButton } />
       </div>
       <div className="Column">
         <h2>Top 100 Baby Girls Names in { props.params.year }</h2>
@@ -71,7 +71,7 @@ console.log(viewAllBoysButton);
             <TopNames top10 ={ top10girls } top100={ top100girls } gender = "f" seeall={ seeAllGirls }/>
           </tbody>
         </table>
-        <ViewAllButton setSeeAll={ setSeeAllGirls } viewButton={ viewAllGirlsButton } setViewAllButton={ setViewAllGirlsButton } />
+        <ViewAllButton setSeeAll={ setSeeAllGirls } viewAllButton={ viewAllGirlsButton } setViewAllButton={ setViewAllGirlsButton } />
       </div>
     </>
   )
