@@ -1,11 +1,12 @@
 import TopNames from './TopNames';
+import ViewAllButton from './ViewAllButton';
 import{ useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 function MaleFemaleLists(props) {
   const [seeAllGirls, setSeeAllGirls] = useState(false);
   const [seeAllBoys, setSeeAllBoys] = useState(false);
-
+  const [viewGirlsButton, setViewGirlsButton] = useState(true); 
 
 
   const newArrGirls= [];
@@ -39,12 +40,15 @@ function UpdateViewAllState (resetstate){
   useEffect(() => {
     setSeeAllGirls(location.state.resetviewall);
     setSeeAllBoys(location.state.resetviewall);
+    setViewGirlsButton(true);
   },[resetstate]);
 }
 
 if (location.state !== null){
   UpdateViewAllState(location.state);
 }
+
+console.log(viewGirlsButton);
 
   return(
     <>
@@ -66,9 +70,7 @@ if (location.state !== null){
             <TopNames top10 ={ top10girls } top100={ top100girls } gender = "f" seeall={ seeAllGirls }/>
           </tbody>
         </table>
-        <div className="text-center">
-          <button onClick={()=> setSeeAllGirls(true)} className="fullwidth">View All</button>
-        </div>
+        <ViewAllButton setSeeAllGirls={ setSeeAllGirls } viewGirlsButton={ viewGirlsButton } setViewGirlsButton={ setViewGirlsButton } />
       </div>
     </>
   )
