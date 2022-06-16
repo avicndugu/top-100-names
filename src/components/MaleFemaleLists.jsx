@@ -37,21 +37,18 @@ function MaleFemaleLists(props) {
 // setting seeAllGirls and seeAllBoys false if visiting after clicking one of bottom links
   const location = useLocation();
 
-function UpdateViewAllState (resetstate){
-  useEffect(() => {
-    setSeeAllGirls(location.state.resetviewall);
-    setSeeAllBoys(location.state.resetviewall);
-    setViewAllGirlsButton(true);
-    setViewAllBoysButton(true);
+  function UpdateViewAllState (resetstate){
+    useEffect(() => {
+      setSeeAllGirls(location.state.resetviewall);
+      setSeeAllBoys(location.state.resetviewall);
+      setViewAllGirlsButton(true);
+      setViewAllBoysButton(true);
+    },[resetstate]);
+  }
 
-  },[resetstate]);
-}
-
-if (location.state !== null){
-  UpdateViewAllState(location.state);
-}
-
-console.log(viewAllBoysButton);
+  if (location.state !== null){
+    UpdateViewAllState(location.state);
+  }
 
   return(
     <>

@@ -55,7 +55,7 @@ function SplitTable(props) {
           </table>
         </div>
       </div>
-      <div className="text-center Column">
+      <div className="Column">
         <ViewAllButton setSeeAll={ setSeeAll } viewAllButton={ viewAllButton } setViewAllButton={ setViewAllButton }/>
       </div>
     </>

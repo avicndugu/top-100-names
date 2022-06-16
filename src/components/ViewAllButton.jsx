@@ -1,5 +1,4 @@
 function ViewAllButton(props) {
-console.log(props.viewAllButton);
   if(props.viewAllButton){
     return (
       <div className="text-center">
