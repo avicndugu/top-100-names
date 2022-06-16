@@ -6,7 +6,8 @@ import { useLocation } from 'react-router-dom';
 function MaleFemaleLists(props) {
   const [seeAllGirls, setSeeAllGirls] = useState(false);
   const [seeAllBoys, setSeeAllBoys] = useState(false);
-  const [viewGirlsButton, setViewGirlsButton] = useState(true); 
+  const [viewAllGirlsButton, setViewAllGirlsButton] = useState(true); 
+  const [viewAllBoysButton, setViewAllBoysButton] = useState(true); 
 
 
   const newArrGirls= [];
@@ -40,7 +41,9 @@ function UpdateViewAllState (resetstate){
   useEffect(() => {
     setSeeAllGirls(location.state.resetviewall);
     setSeeAllBoys(location.state.resetviewall);
-    setViewGirlsButton(true);
+    setViewAllGirlsButton(true);
+    setViewAllBoysButton(true);
+
   },[resetstate]);
 }
 
@@ -48,7 +51,7 @@ if (location.state !== null){
   UpdateViewAllState(location.state);
 }
 
-console.log(viewGirlsButton);
+console.log(viewAllBoysButton);
 
   return(
     <>
@@ -59,9 +62,7 @@ console.log(viewGirlsButton);
             <TopNames top10 ={ top10boys }  top100={ top100boys } gender = "m" seeall={ seeAllBoys } />
           </tbody>
         </table>
-        <div className="text-center">
-          <button onClick={()=> setSeeAllBoys(true)} className="fullwidth">View All</button>
-        </div>
+        <ViewAllButton setSeeAll={ setSeeAllBoys } viewButton={ viewAllBoysButton } setViewAllButton={ setViewAllBoysButton } />
       </div>
       <div className="Column">
         <h2>Top 100 Baby Girls Names in { props.params.year }</h2>
@@ -70,7 +71,7 @@ console.log(viewGirlsButton);
             <TopNames top10 ={ top10girls } top100={ top100girls } gender = "f" seeall={ seeAllGirls }/>
           </tbody>
         </table>
-        <ViewAllButton setSeeAllGirls={ setSeeAllGirls } viewGirlsButton={ viewGirlsButton } setViewGirlsButton={ setViewGirlsButton } />
+        <ViewAllButton setSeeAll={ setSeeAllGirls } viewButton={ viewAllGirlsButton } setViewAllButton={ setViewAllGirlsButton } />
       </div>
     </>
   )

@@ -1,12 +1,12 @@
 function ViewAllButton(props) {
-console.log(props.viewGirlsButton);
-  if(props.viewGirlsButton){
+console.log(props.viewButton);
+  if(props.viewButton){
     return (
       <div className="text-center">
         <button onClick={
           ()=> {
-            props.setSeeAllGirls(true);
-            props.setViewGirlsButton(false);
+            props.setSeeAll(true);
+            props.setViewAllButton(false);
           }
         } className="fullwidth">View All</button>
       </div>
