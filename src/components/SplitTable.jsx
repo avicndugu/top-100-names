@@ -1,9 +1,13 @@
 import HalfTop from './HalfTop';
+import ViewAllButton from './ViewAllButton';
 import{ useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 function SplitTable(props) {
   const [seeAll, setSeeAll] = useState(false);
+  const [viewAllButton, setViewAllButton] = useState(true); 
+  
+    
   const namesList = props.names.map((item, index) => (
     {
       pos: index + 1,
@@ -25,6 +29,7 @@ function SplitTable(props) {
     useEffect(() => {
       setSeeAll(location.state.resetviewall);
       setSeeAll(location.state.resetviewall);
+      setViewAllButton(true);
     },[resetstate]);
   }
 
@@ -50,8 +55,8 @@ function SplitTable(props) {
           </table>
         </div>
       </div>
-      <div className="text-center Column">
-        <button onClick={() => setSeeAll(true)} className="fullwidth">See All</button>
+      <div className="Column">
+        <ViewAllButton setSeeAll={ setSeeAll } viewAllButton={ viewAllButton } setViewAllButton={ setViewAllButton }/>
       </div>
     </>
   )
