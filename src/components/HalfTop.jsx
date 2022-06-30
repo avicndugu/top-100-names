@@ -3,13 +3,13 @@ const SplitTop = (props) => {
     if(!props.even){
       return (
         props.firstQuarter.map((item) => (
-          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td><td><button>A</button></td></tr>
         ))
       )
     } else {
       return (
         props.secondQuarter.map((item) => (
-          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td><td><button>A</button></td></tr>
         ))
       )
     }
@@ -18,13 +18,13 @@ const SplitTop = (props) => {
     if(!props.even){
       return(
         props.firstHalf.map((item) => (
-          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td><td><button>A</button></td></tr>
         ))
       )
     } else {
       return (
         props.secondHalf.map((item) => (
-          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td><td><button>A</button></td></tr>
         ))
       )
     }
