@@ -6,8 +6,10 @@ import useFetch from '../../functions/useFetch';
 import { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 
+import ToggleFavourite from '../../components/ToggleFavourite';
+
 function Home() {
-  const [isDataLoading, data] = useFetch('https://jekyll-json-api.netlify.app/yob2021.json');
+  const [isDataLoading, data] = useFetch('http://localhost:3000/yob2021.json');
   const [seeAllGirls, setSeeAllGirls] = useState(false);
   const [seeAllBoys, setSeeAllBoys] = useState(false);
 
@@ -63,14 +65,14 @@ function Home() {
     const girls = data.filter((name) => name.gender === "F");
     girls.forEach((item, index) =>{
       item.pos = index + 1;
-      newArrGirls.push(item)
+      newArrGirls.push(item);
       return newArrGirls;
     })
 
     const boys = data.filter((name) => name.gender === "M");
     boys.forEach((item, index) =>{
       item.pos = index + 1;
-      newArrBoys.push(item)
+      newArrBoys.push(item);
       return newArrBoys;
     })
 
@@ -81,6 +83,7 @@ function Home() {
 
     return (
       <>
+        <ToggleFavourite />
         <div>
           <h1>Top 100 Baby Names in 2021</h1>
           <SplitTable names= { data }/>

@@ -13,11 +13,11 @@ const ToggleFavourite = () => {
 function Board() {
   const [buttonsClicked, setButtonsClicked] = useState(Array(4).fill('Not Clicked'));
   const buttonClick = (clickEvent, index) => {
-    const clicks = buttonsClicked.map((click, i) => {
+    const clicks = buttonsClicked.map((clickvalue, i) => {
       if (i === index){
         return "clicked";
       }else{
-      return click;
+      return clickvalue;
       }
 
     });
