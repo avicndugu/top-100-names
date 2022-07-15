@@ -6,7 +6,7 @@ const YearLinksPagination = (props)=> {
           props.setPageNumber(props.pageNumber - 1);
         }
       }}>Newer</button>
-      <div>
+      <div className="hide-mobile">
         <button onClick={()=> props.setPageNumber(1)}>1</button>
         <button onClick={()=> props.setPageNumber(2)}>2</button>
         <button onClick={()=> props.setPageNumber(3)}>3</button>
