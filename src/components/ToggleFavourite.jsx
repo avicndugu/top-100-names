@@ -11,27 +11,35 @@ const ToggleFavourite = () => {
 
 
 function Board() {
+  const [buttonsClicked, setButtonsClicked] = useState(Array(4).fill('Not Clicked'));
+  const buttonClick = (clickEvent, index) => {
+    const clicks = buttonsClicked.map((click, i) => {
+      if (i === index){
+        return "clicked";
+      }else{
+      return click;
+      }
+
+    });
+    setButtonsClicked(clicks);
+  }
   return (
     <>
-      <Square value={1} />
-      <Square value={2} />
-      <Square value={3} />
-      <Square value={4} />
-      <Square value={5} />
+      {
+      buttonsClicked.map((click, i)=>(
+        <button onClick={(clickEvent)=> buttonClick(clickEvent, i)}>Button {i}</button>
+      ))}
     </>
   )
 }
 
 const Square = (props) => {
- const [clicked, setClicked] = useState("not clicked");
   return(
-    <button className="square" onClick={()=> setClicked("Clicked")}>
-      {props.value} and is {clicked}
+    <button className="square" onClick={()=> props.setClicked("Clicked")}>
+      {props.value} and is {props.clicked}
     </button>
   )
 }
-
-
 
 
 export default ToggleFavourite;
