@@ -6,7 +6,7 @@ import useFetch from '../../functions/useFetch';
 import { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 
-import ToggleFavourite from '../../components/ToggleFavourite';
+import ToggleFavourite2 from '../../components/ToggleFavourite2';
 
 function Home() {
   const [isDataLoading, data] = useFetch('http://localhost:3000/yob2021.json');
@@ -83,7 +83,7 @@ function Home() {
 
     return (
       <>
-        <ToggleFavourite />
+        <ToggleFavourite2 />
         <div>
           <h1>Top 100 Baby Names in 2021</h1>
           <SplitTable names= { data }/>
