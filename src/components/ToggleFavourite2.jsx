@@ -21,8 +21,9 @@ const friendsArray = [
 
 
 const ToggleFavourite2 = () => {
-    const [friends, setFriends] = useState(friendsArray); // Setting default value
+    
 
+    const [friends, setFriends] = useState(friendsArray); // Setting default value
     // function to add new friend
     const handleAddFriend = () => {
         setFriends((prevFriends) => [
@@ -34,11 +35,11 @@ const ToggleFavourite2 = () => {
         ]);
     };
     // Function to edit values of one friend
-    const handleSecondFriend = () => {
+    const handleSecondFriend = (change) => {
         setFriends(
             friends.map((friend) =>{
                 // Here you accept a id argument to the function and replace it with hard coded 🤪 2, to make it dynamic.
-                if(friend.id === 2){
+                if(friend.id === change){
                     return { ...friend, name: "Changed Name" }
                 } else {
                     return { ...friend }
@@ -58,11 +59,12 @@ const ToggleFavourite2 = () => {
                     <li key={index}>
                         <span>name: {friend.name}</span>{" "}
                         <span>age: {friend.age}</span>
+                        <button onClick={()=>handleSecondFriend(friend.id)}>Change Second Name</button>
                     </li>
                 ))}
                 <button onClick={handleAddFriend}>Add Friends</button>
 
-                <button onClick={handleSecondFriend}>Change Second Name</button>
+                <button onClick={()=>handleSecondFriend(2)}>Change Second Name</button>
 
             </ul>
         </main>
