@@ -18,10 +18,13 @@ function SplitTable(props) {
     }
   ));
 
-  const first50 = namesList.filter(name => name.pos <= 50);
-  const second50 = namesList.filter(name => name.pos > 50 && name.pos <=100);
-  const first25 = namesList.filter(name => name.pos <= 25);
-  const second25 = namesList.filter(name => name.pos>25 && name.pos <= 50);
+// Altering Favourite State
+  const [names, setNames] = useState(namesList);
+
+  const first50 = names.filter(name => name.pos <= 50);
+  const second50 = names.filter(name => name.pos > 50 && name.pos <=100);
+  const first25 = names.filter(name => name.pos <= 25);
+  const second25 = names.filter(name => name.pos>25 && name.pos <= 50);
 
   // setting seeAll false if visiting after clicking one of bottom links
   const location = useLocation();
@@ -38,24 +41,21 @@ function SplitTable(props) {
     UpdateViewAllState(location.state);
   }
 
- // Altering Favourite State
-  const [names, setNames] = useState(namesList);
-
+let number = 12;
   // Function to set favourites
   const changeFavourite = (id) => {
+    
     setNames(
-      namesList.map((name) => {
+      names.map((name) => {
         if(name.pos == id){
-          console.log(id)
+
           return { ...name, favourite: !name.favourite }
         } else {
-          console.log(id)
           return{ ...name }
         }
       })
     )
   }
-
 
   return(
     <>
