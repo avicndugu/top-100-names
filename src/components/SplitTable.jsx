@@ -70,7 +70,7 @@ let number = 12;
         <div className="Column">
           <table>
             <tbody>
-              <HalfTop secondQuarter = { second25 } secondHalf= { second50 } gender = "all" even={true} seeall={seeAll} />
+              <HalfTop secondQuarter = { second25 } secondHalf= { second50 } gender = "all" even={true} seeall={seeAll}  changeFavourite= {changeFavourite}/>
             </tbody>
           </table>
         </div>

@@ -5,9 +5,17 @@ const SplitTop = (props) => {
       return (
         props.firstQuarter.map((item) => (
           <tr key={`${props.gender}-${item.pos}`}>
-            <td>{`${item.pos}`}. {item.name}</td>
-            <td><button onClick={()=>props.changeFavourite(item.pos)}>{item.pos} {item.name} {item.favourite.toString()}</button></td>
-            <td><input id={`${props.gender}-${item.pos}`} favourite={ false } value={`${item.pos}`} type="checkbox" onClick={()=> console.log(1)}/></td>
+            <td>
+              {`${item.pos}`}. {item.name}
+            </td>
+            <td>
+              <button onClick={()=>props.changeFavourite(item.pos)}>
+                {item.favourite.toString()}
+              </button>
+            </td>
+            <td>
+              <input id={`${props.gender}-${item.pos}`} favourite={ false } value={`${item.pos}`} type="checkbox" onClick={()=> console.log(1)}/>
+            </td>
 
           </tr>
         ))
@@ -15,7 +23,16 @@ const SplitTop = (props) => {
     } else {
       return (
         props.secondQuarter.map((item) => (
-          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td><td><button>A</button></td></tr>
+          <tr key={`${props.gender}-${item.pos}`}>
+            <td>
+              {`${item.pos}`}. {item.name}
+            </td>
+            <td>
+              <button onClick={()=>props.changeFavourite(item.pos)}>
+                {item.favourite.toString()}
+              </button>
+              </td>            
+          </tr>
         ))
       )
     }
@@ -24,13 +41,29 @@ const SplitTop = (props) => {
     if(!props.even){
       return(
         props.firstHalf.map((item) => (
-          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td><td><button>A</button></td></tr>
+          <tr key={`${props.gender}-${item.pos}`}>
+            <td>{`${item.pos}`}. {item.name}</td>
+            <td>
+              <button onClick={()=>props.changeFavourite(item.pos)}>
+                {item.favourite.toString()}
+              </button>
+              </td>            
+          </tr>
         ))
       )
     } else {
       return (
         props.secondHalf.map((item) => (
-          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td><td><button>A</button></td></tr>
+          <tr key={`${props.gender}-${item.pos}`}>
+            <td>
+              {`${item.pos}`}. {item.name}
+            </td>
+            <td>
+              <button onClick={()=>props.changeFavourite(item.pos)}>
+                {item.favourite.toString()}
+              </button>
+            </td>            
+          </tr>
         ))
       )
     }
