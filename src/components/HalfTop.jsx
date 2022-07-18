@@ -1,5 +1,13 @@
 const SplitTop = (props) => {
 
+  const favStyleFalse = {
+    'background-color': '#862e9c'
+  };
+
+  const favStyleTrue = {
+    'background-color': 'Green'
+  };
+
   if(!props.seeall){
     if(!props.even){
       return (
@@ -9,7 +17,7 @@ const SplitTop = (props) => {
               {`${item.pos}`}. {item.name}
             </td>
             <td>
-              <button onClick={()=>props.changeFavourite(item.pos)}>
+              <button style={ item.favourite ? favStyleTrue : favStyleFalse} onClick={()=>props.changeFavourite(item.pos)}>
                 {item.favourite.toString()}
               </button>
             </td>
@@ -28,7 +36,7 @@ const SplitTop = (props) => {
               {`${item.pos}`}. {item.name}
             </td>
             <td>
-              <button onClick={()=>props.changeFavourite(item.pos)}>
+              <button style={ item.favourite ? favStyleTrue : favStyleFalse} onClick={()=>props.changeFavourite(item.pos)}>
                 {item.favourite.toString()}
               </button>
               </td>            
@@ -44,7 +52,7 @@ const SplitTop = (props) => {
           <tr key={`${props.gender}-${item.pos}`}>
             <td>{`${item.pos}`}. {item.name}</td>
             <td>
-              <button onClick={()=>props.changeFavourite(item.pos)}>
+              <button style={ item.favourite ? favStyleTrue : favStyleFalse} onClick={()=>props.changeFavourite(item.pos)}>
                 {item.favourite.toString()}
               </button>
               </td>            
@@ -59,7 +67,7 @@ const SplitTop = (props) => {
               {`${item.pos}`}. {item.name}
             </td>
             <td>
-              <button onClick={()=>props.changeFavourite(item.pos)}>
+              <button style={ item.favourite ? favStyleTrue : favStyleFalse} onClick={()=>props.changeFavourite(item.pos)}>
                 {item.favourite.toString()}
               </button>
             </td>            
