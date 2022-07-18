@@ -20,20 +20,39 @@ const ToggleFavourite = () => {
       })
     )
   }
+  console.log(names);
   return (
     <main>
+      <DisplayFavourite names= {names} changeFavourite= {changeFavourite}/>
       <ul>
         {
           names.map((name) => (
             <li key={name.id}> {name.id} { name.name }
               <button onClick={()=>changeFavourite(name.id)}>
-                Toggle Favourite {name.favourite}
+                Toggle Favourite
               </button>
             </li>
           ))
         }
       </ul>
     </main>
+  )
+}
+
+const DisplayFavourite = (props) => {
+  console.log(props);
+  return (
+    <ul>
+      {  
+        props.names.map((name) => (
+          <li key={name.id}>{name.id} { name.name }
+            <button onClick={()=> props.changeFavourite(name.id)}>
+                Toggle Favourite
+              </button>
+          </li>
+        ))
+      }
+    </ul>
   )
 }
 
