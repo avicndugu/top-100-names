@@ -18,7 +18,6 @@ function SplitTable(props) {
     }
   ));
 
-console.log(namesList);
   const first50 = namesList.filter(name => name.pos <= 50);
   const second50 = namesList.filter(name => name.pos > 50 && name.pos <=100);
   const first25 = namesList.filter(name => name.pos <= 25);
@@ -39,13 +38,32 @@ console.log(namesList);
     UpdateViewAllState(location.state);
   }
 
+ // Altering Favourite State
+  const [names, setNames] = useState(namesList);
+
+  // Function to set favourites
+  const changeFavourite = (id) => {
+    setNames(
+      namesList.map((name) => {
+        if(name.pos == id){
+          console.log(id)
+          return { ...name, favourite: !name.favourite }
+        } else {
+          console.log(id)
+          return{ ...name }
+        }
+      })
+    )
+  }
+
+
   return(
     <>
       <div className="Row">
         <div className="Column">
           <table>
             <tbody>
-              <HalfTop firstQuarter = { first25 } firstHalf = { first50 }  gender = "all" even={false} seeall={seeAll} />
+              <HalfTop firstQuarter = { first25 } firstHalf = { first50 }  gender = "all" even={false} seeall={seeAll} changeFavourite= {changeFavourite}/>
             </tbody>
           </table>
         </div>
