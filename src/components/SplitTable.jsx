@@ -13,10 +13,12 @@ function SplitTable(props) {
       pos: index + 1,
       name: item.name,
       count: item.count,
-      gender: item.gender
+      gender: item.gender,
+      favourite: false
     }
   ));
 
+console.log(namesList);
   const first50 = namesList.filter(name => name.pos <= 50);
   const second50 = namesList.filter(name => name.pos > 50 && name.pos <=100);
   const first25 = namesList.filter(name => name.pos <= 25);
