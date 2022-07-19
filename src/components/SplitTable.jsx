@@ -41,19 +41,67 @@ function SplitTable(props) {
     UpdateViewAllState(location.state);
   }
 
+  const [localFav, setLocalFav] = useState([]);
+
   // Function to set favourites
   const changeFavourite = (id) => {
-    
     setNames(
       names.map((name) => {
         if(name.pos === id){
+          console.log(id)
+          console.log(name.name);
           return { ...name, favourite: !name.favourite }
         } else {
           return{ ...name }
         }
+      }),
+    );
+    setLocalFav(
+      names.map((name) => {
+        if(name.pos === id){
+          const localdata = [];
+          const data = {name: name.name, pos: name.pos};
+          if(localStorage.key(0)==='localfavourite') {
+            // Update localstorage object
+            const currentlocalfavourite = JSON.parse(localStorage.getItem('localfavourite'));
+            console.log(currentlocalfavourite);
+            currentlocalfavourite.push(data);
+            console.log(currentlocalfavourite);
+            const datatobesaved = JSON.stringify(currentlocalfavourite);
+            localStorage.setItem('localfavourite', datatobesaved);
+            console.log(localStorage.getItem('localfavourite'))
+
+          } else {
+            // Create localstorage object for the first time
+            localdata.push(data)
+            const datatobesaved = JSON.stringify(localdata);
+            localStorage.setItem('localfavourite', datatobesaved );
+          }
+        }
       })
+
+      // if (localStorage.key(0)==='localfavourite'){
+
+            // localStorage.setItem('localfavourite', name.name);
+             //var data ={name: name.name, pos: name.pos};
+             //console.log(data)
+            // localfav.push((data))
+            // console.log(localfav)
+            //localStorage.setItem('localfavourite', localfav);
+         // } else {
+            // var data ={name: name.name, pos: name.pos};
+            // console.log(data)
+            // localfav.push(JSON.stringify(data))
+            // localStorage.setItem('localfavourite', localfav);
+         // }
+          // localStorage.setItem('localfavourite', name.name);
+
+      // console.log(localStorage.getItem('localfavourite'))
+
     )
   }
+//      console.log(localStorage.getItem('localfav'))
+
 
   return(
     <>
