@@ -1,11 +1,11 @@
 import heartoutline from '../icons/heart-regular.png';
 import heartsolid from '../icons/heart-solid.png';
 
-const SplitTop = (props) => {
-  const iconWidth = {
-    width: '30px'
-  };
+const iconWidth = {
+  width: '30px'
+};
 
+const SplitTop = (props) => {
   if(!props.seeall){
     if(!props.even){
       return (
@@ -16,12 +16,7 @@ const SplitTop = (props) => {
             </td>
             <td>
               <img style={iconWidth} src={ item.favourite ? heartsolid : heartoutline } onClick={()=>props.changeFavourite(item.pos)} alt={ item.favourite ? "favourite" : "not favourite" } />
-              {/*<img className="icons" src={heartsolid} alt="favourite" />*/}
             </td>
-            <td>
-              <input id={`${props.gender}-${item.pos}`} favourite={ false } value={`${item.pos}`} type="checkbox" onClick={()=> console.log(1)}/>
-            </td>
-
           </tr>
         ))
       )

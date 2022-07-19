@@ -19,7 +19,7 @@ const friendsArray = [
     },
 ];
 
-const friendsnames = [{id: 1,name: "Agnes", favourite: "false"},{id: 2,name: "ALice", favourite: "false"},{id: 3,name: "Alvaro", favourite: "false"},{id: 4,name: "Arabia", favourite: "false"}];
+const friendsnames = [{id: 1,name: "Agnes", favourite: false},{id: 2,name: "ALice", favourite: false},{id: 3,name: "Alvaro", favourite: false},{id: 4,name: "Arabia", favourite: false}];
 
 
 const ToggleFavourite2 = () => {
@@ -31,8 +31,8 @@ const ToggleFavourite2 = () => {
     setNames(
         names.map((name) => {
             if(name.id == id){
-                
-                return { ...name, favourite: "true" }
+
+                return { ...name, favourite: !name.favourite }
             } else {
                 return{ ...name }
             }
