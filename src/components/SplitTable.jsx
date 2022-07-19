@@ -6,15 +6,15 @@ import { useLocation } from 'react-router-dom';
 function SplitTable(props) {
   const [seeAll, setSeeAll] = useState(false);
   const [viewAllButton, setViewAllButton] = useState(true); 
+  const favourites = new Array(100).fill(false);
   
-    
   const namesList = props.names.map((item, index) => (
     {
       pos: index + 1,
       name: item.name,
       count: item.count,
       gender: item.gender,
-      favourite: false
+      favourite: favourites[index]
     }
   ));
 
@@ -41,14 +41,12 @@ function SplitTable(props) {
     UpdateViewAllState(location.state);
   }
 
-let number = 12;
   // Function to set favourites
   const changeFavourite = (id) => {
     
     setNames(
       names.map((name) => {
-        if(name.pos == id){
-
+        if(name.pos === id){
           return { ...name, favourite: !name.favourite }
         } else {
           return{ ...name }
