@@ -64,43 +64,23 @@ function SplitTable(props) {
           if(localStorage.key(0)==='localfavourite') {
             // Update localstorage object
             const currentlocalfavourite = JSON.parse(localStorage.getItem('localfavourite'));
-            console.log(currentlocalfavourite);
-            currentlocalfavourite.push(data);
-            console.log(currentlocalfavourite);
-            const datatobesaved = JSON.stringify(currentlocalfavourite);
-            localStorage.setItem('localfavourite', datatobesaved);
-            console.log(localStorage.getItem('localfavourite'))
+            // Check if name exist in favourite list
+            // If it exist in favourite list: remove it from the favourite list.
+            
+            // Else add it to the list
 
+            currentlocalfavourite.push(data);
+            localStorage.setItem('localfavourite', JSON.stringify(currentlocalfavourite));
+            console.log(localStorage.getItem('localfavourite'))
           } else {
             // Create localstorage object for the first time
             localdata.push(data)
-            const datatobesaved = JSON.stringify(localdata);
-            localStorage.setItem('localfavourite', datatobesaved );
+            localStorage.setItem('localfavourite', JSON.stringify(localdata) );
           }
         }
       })
-
-      // if (localStorage.key(0)==='localfavourite'){
-
-            // localStorage.setItem('localfavourite', name.name);
-             //var data ={name: name.name, pos: name.pos};
-             //console.log(data)
-            // localfav.push((data))
-            // console.log(localfav)
-            //localStorage.setItem('localfavourite', localfav);
-         // } else {
-            // var data ={name: name.name, pos: name.pos};
-            // console.log(data)
-            // localfav.push(JSON.stringify(data))
-            // localStorage.setItem('localfavourite', localfav);
-         // }
-          // localStorage.setItem('localfavourite', name.name);
-
-      // console.log(localStorage.getItem('localfavourite'))
-
     )
   }
-//      console.log(localStorage.getItem('localfav'))
 
 
   return(
