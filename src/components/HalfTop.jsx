@@ -5,13 +5,6 @@ const SplitTop = (props) => {
   const iconWidth = {
     width: '30px'
   };
-  const favStyleFalse = {
-    'background-color': '#862e9c'
-  };
-
-  const favStyleTrue = {
-    'background-color': 'Green'
-  };
 
   if(!props.seeall){
     if(!props.even){
@@ -24,9 +17,6 @@ const SplitTop = (props) => {
             <td>
               <img style={iconWidth} src={ item.favourite ? heartsolid : heartoutline } onClick={()=>props.changeFavourite(item.pos)} alt={ item.favourite ? "favourite" : "not favourite" } />
               {/*<img className="icons" src={heartsolid} alt="favourite" />*/}
-              <button style={ item.favourite ? favStyleTrue : favStyleFalse} onClick={()=>props.changeFavourite(item.pos)}>
-                {item.favourite.toString()}
-              </button>
             </td>
             <td>
               <input id={`${props.gender}-${item.pos}`} favourite={ false } value={`${item.pos}`} type="checkbox" onClick={()=> console.log(1)}/>
@@ -44,9 +34,6 @@ const SplitTop = (props) => {
             </td>
             <td>
               <img style={iconWidth} src={ item.favourite ? heartsolid : heartoutline } onClick={()=>props.changeFavourite(item.pos)} alt={ item.favourite ? "favourite" : "not favourite" } />
-              <button style={ item.favourite ? favStyleTrue : favStyleFalse} onClick={()=>props.changeFavourite(item.pos)}>
-                {item.favourite.toString()}
-              </button>
               </td>            
           </tr>
         ))
@@ -61,9 +48,6 @@ const SplitTop = (props) => {
             <td>{`${item.pos}`}. {item.name}</td>
             <td>
               <img style={iconWidth} src={ item.favourite ? heartsolid : heartoutline } onClick={()=>props.changeFavourite(item.pos)} alt={ item.favourite ? "favourite" : "not favourite" } />
-              <button style={ item.favourite ? favStyleTrue : favStyleFalse} onClick={()=>props.changeFavourite(item.pos)}>
-                {item.favourite.toString()}
-              </button>
               </td>            
           </tr>
         ))
@@ -77,9 +61,6 @@ const SplitTop = (props) => {
             </td>
             <td>
               <img style={iconWidth} src={ item.favourite ? heartsolid : heartoutline } onClick={()=>props.changeFavourite(item.pos)} alt={ item.favourite ? "favourite" : "not favourite" } />
-              <button style={ item.favourite ? favStyleTrue : favStyleFalse} onClick={()=>props.changeFavourite(item.pos)}>
-                {item.favourite.toString()}
-              </button>
             </td>            
           </tr>
         ))
