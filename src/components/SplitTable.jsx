@@ -48,8 +48,8 @@ function SplitTable(props) {
     setNames(
       names.map((name) => {
         if(name.pos === id){
-          console.log(id)
-          console.log(name.name);
+          // console.log(id)
+          // console.log(name.name);
           return { ...name, favourite: !name.favourite }
         } else {
           return{ ...name }
@@ -60,18 +60,24 @@ function SplitTable(props) {
       names.map((name) => {
         if(name.pos === id){
           const localdata = [];
-          const data = {name: name.name, pos: name.pos};
+          // const data = name.name;
+           const data = {name: name.name, pos: name.pos};
           if(localStorage.key(0)==='localfavourite') {
             // Update localstorage object
             const currentlocalfavourite = JSON.parse(localStorage.getItem('localfavourite'));
             // Check if name exist in favourite list
-            // If it exist in favourite list: remove it from the favourite list.
-            
-            // Else add it to the list
+            const index = currentlocalfavourite.map(item => item.pos).indexOf(id);
+            if (index>=0){
+              // Remove item existing on favourite list
+              currentlocalfavourite.splice(index,1);
+              localStorage.setItem('localfavourite', JSON.stringify(currentlocalfavourite));
+            } else {
+              // Add new item on on favourite list
+              currentlocalfavourite.push(data);
+              localStorage.setItem('localfavourite', JSON.stringify(currentlocalfavourite));
+            }
+            // console.log(localStorage.getItem('localfavourite'))
 
-            currentlocalfavourite.push(data);
-            localStorage.setItem('localfavourite', JSON.stringify(currentlocalfavourite));
-            console.log(localStorage.getItem('localfavourite'))
           } else {
             // Create localstorage object for the first time
             localdata.push(data)
