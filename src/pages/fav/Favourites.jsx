@@ -22,7 +22,7 @@ function Favourites() {
     console.log(currentlocalfav);
     return (
       <>
-        <h1>Your Favourite Baby Names data present</h1>
+        <h1>Your Favourite Baby Names</h1>
         <div className="Row">
           <div className="Column">
             {
