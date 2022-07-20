@@ -7,12 +7,10 @@ function Favourites() {
     return (
       <>
         <h1>Your Favourite Baby Names</h1>
-        <div className="Row">
+        <div>
           <p>No favourite baby names</p>
-          <br/>
           <p>You have not choosen any baby names.</p>
-
-          <p>Once you like the baby names, they will appear here.</p>
+          <p>You selected the baby names will appear here once you click the heart button next to the name.</p>
         </div>
         <AllBottomLinks />
       </>
@@ -20,6 +18,19 @@ function Favourites() {
   } else {
     const currentlocalfav = JSON.parse(localStorage.getItem('localfavourite'));
     console.log(currentlocalfav);
+    if(currentlocalfav.length===0) {
+      return (
+        <>
+        <h1>Your Favourite Baby Names</h1>
+        <div>
+          <p>No favourite baby names</p>
+          <p>You have not choosen any baby names.</p>
+          <p>You selected the baby names will appear here once you click the heart button next to the name.</p>
+        </div>
+        <AllBottomLinks />
+        </>
+      )
+    }
     return (
       <>
         <h1>Your Favourite Baby Names</h1>
