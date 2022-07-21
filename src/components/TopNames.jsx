@@ -3,13 +3,17 @@ const TopNames = (props) => {
     if(!props.seeall){
       return (
         props.top10.map((item) => (
-          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+          <tr key={`${props.gender}-${item.pos}`}>
+            <td>{`${item.pos}`}. {item.name}</td>
+          </tr>
         ))
       )
     } else {
       return (
         props.top100.map((item) => (
-          <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+          <tr key={`${props.gender}-${item.pos}`}>
+            <td>{`${item.pos}`}. {item.name}</td>
+          </tr>
         ))
       )
     }
@@ -18,13 +22,17 @@ const TopNames = (props) => {
       if(!props.seeall){
         return (
           props.top10.map((item) => (
-            <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+            <tr key={`${props.gender}-${item.pos}`}>
+              <td>{`${item.pos}`}. {item.name}</td>
+            </tr>
           ))
         )
       } else {
         return (
           props.top100.map((item) => (
-            <tr key={`${props.gender}-${item.pos}`}><td>{`${item.pos}`}. {item.name}</td></tr>
+            <tr key={`${props.gender}-${item.pos}`}>
+              <td>{`${item.pos}`}. {item.name}</td>
+            </tr>
           ))
         )
       } 
