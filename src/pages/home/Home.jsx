@@ -6,10 +6,8 @@ import useFetch from '../../functions/useFetch';
 import { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 
-import ToggleFavourite2 from '../../components/ToggleFavourite2';
-
 function Home() {
-  const [isDataLoading, data] = useFetch('http://localhost:3000/yob2021.json');
+  const [isDataLoading, data] = useFetch('https://jekyll-json-api.netlify.app/yob2021.json');
   const [seeAllGirls, setSeeAllGirls] = useState(false);
   const [seeAllBoys, setSeeAllBoys] = useState(false);
 
@@ -83,7 +81,6 @@ function Home() {
 
     return (
       <>
-        <ToggleFavourite2 />
         <div>
           <h1>Top 100 Baby Names in 2021</h1>
           <SplitTable names= { data }/>
