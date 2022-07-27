@@ -45,6 +45,31 @@ function SplitTable(props) {
 
   // Function to set favourites
   const changeFavourite = (id) => {
+    const selectedname = names.filter(name => name.pos === id);
+    function changeLocalStorage(){
+      console.log(selectedname[0]);
+      const localdata = [];
+      if(localStorage.key(0)==='localfavourite') {
+        // Update localstorage object
+        const currentlocalfavourite = JSON.parse(localStorage.getItem('localfavourite'));
+        // Check if name exist in favourite list
+        const index = currentlocalfavourite.map(item => item.pos).indexOf(id);
+        if (index>=0){
+          // Remove item existing on favourite list
+          currentlocalfavourite.splice(index,1);
+          localStorage.setItem('localfavourite', JSON.stringify(currentlocalfavourite));
+        } else {
+          // Add new item on on favourite list
+          currentlocalfavourite.push(selectedname[0]);
+          localStorage.setItem('localfavourite', JSON.stringify(currentlocalfavourite));
+        }
+      } else {
+        // Create localstorage object for the first time
+        localdata.push(selectedname[0])
+        localStorage.setItem('localfavourite', JSON.stringify(localdata));
+      }
+      console.log(JSON.parse(localStorage.getItem('localfavourite')));
+    }
     setNames(
       names.map((name) => {
         if(name.pos === id){
@@ -56,35 +81,9 @@ function SplitTable(props) {
         }
       }),
     );
-    setLocalFav(
-      names.map((name) => {
-        if(name.pos === id){
-          const localdata = [];
-          // const data = name.name;
-           const data = {name: name.name, pos: name.pos};
-          if(localStorage.key(0)==='localfavourite') {
-            // Update localstorage object
-            const currentlocalfavourite = JSON.parse(localStorage.getItem('localfavourite'));
-            // Check if name exist in favourite list
-            const index = currentlocalfavourite.map(item => item.pos).indexOf(id);
-            if (index>=0){
-              // Remove item existing on favourite list
-              currentlocalfavourite.splice(index,1);
-              localStorage.setItem('localfavourite', JSON.stringify(currentlocalfavourite));
-            } else {
-              // Add new item on on favourite list
-              currentlocalfavourite.push(data);
-              localStorage.setItem('localfavourite', JSON.stringify(currentlocalfavourite));
-            }
-            // console.log(localStorage.getItem('localfavourite'))
 
-          } else {
-            // Create localstorage object for the first time
-            localdata.push(data)
-            localStorage.setItem('localfavourite', JSON.stringify(localdata) );
-          }
-        }
-      })
+    setLocalFav(
+      changeLocalStorage(), 
     )
   }
 
