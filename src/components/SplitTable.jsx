@@ -41,12 +41,10 @@ function SplitTable(props) {
 
 console.log(namesList[0].favourite)
 // Altering Favourite State
- const [names, setNames] = useState(namesList);
- console.log(names)
-  const first50 = names.filter(name => name.pos <= 50);
-  const second50 = names.filter(name => name.pos > 50 && name.pos <=100);
-  const first25 = names.filter(name => name.pos <= 25);
-  const second25 = names.filter(name => name.pos>25 && name.pos <= 50);
+  const first50 = namesList.filter(name => name.pos <= 50);
+  const second50 = namesList.filter(name => name.pos > 50 && name.pos <=100);
+  const first25 = namesList.filter(name => name.pos <= 25);
+  const second25 = namesList.filter(name => name.pos>25 && name.pos <= 50);
 
   // setting seeAll false if visiting after clicking one of bottom links
   const location = useLocation();
@@ -63,52 +61,15 @@ console.log(namesList[0].favourite)
     UpdateViewAllState(location.state);
   }
 
-const [localFav, setLocalFav] = useState(new Array(0));
-
-useEffect(()=> {
-  console.log(localFav)
-})
-
-// useEffect(()=> {
-//   function updateViewFromDatabase(localdata){   
-//       setNames(
-//         names.map(name => {
-//           currentlocalfav.filter((localname) => {
-//             if(name.pos === localname.pos) {
-//               return { ...name, favourite: !name.favourite };
-//             } else {
-//               return { ...name };
-//             }
-//           })
-//           return name
-//         })
-//       );
-//       console.log(names);
-//     }
-//   // updateViewFromDatabase(currentlocalfav); 
-// })
+  const [localFav, setLocalFav] = useState(new Array(0));
 
 
-//function changeFavNameValue(id){
-  //setNames(
-    //names.map((name) => {
-      //if(name.pos === id){
-        // console.log(id)
-        // console.log(name.name);
-        //console.log(name.favourite);
-        //return { ...name, favourite: !name.favourite }
-      //} else {
-        //return{ ...name }
-     // }
-    //})
-  //);
-//}
 
   // Function to set favourites
   const changeFavourite = (id) => {
   // changeFavNameValue(id);
     // Change the favourite value of liked name
-    const selectedname = names.filter(name => name.pos === id);
+    const selectedname = namesList.filter(name => name.pos === id);
     
     function changeLocalStorage(){
       console.log(selectedname);
@@ -126,8 +87,6 @@ useEffect(()=> {
           currentlocalfavourite.splice(index,1);
           console.log(currentlocalfavourite)
           localStorage.setItem('localfavourite', JSON.stringify(currentlocalfavourite));
-          // const updatedlocalfav = localFav.filter(name=> name.pos !== id);
-          // console.log(updatedlocalfav)
           return(currentlocalfavourite);
         } else {
           // if item is not in local storage, set value of the favourite item to true
@@ -135,30 +94,23 @@ useEffect(()=> {
           // Add new item on favourite list
           currentlocalfavourite.push(selectedname[0]);
           localStorage.setItem('localfavourite', JSON.stringify(currentlocalfavourite));
-          console.log(currentlocalfavourite)
           return(currentlocalfavourite);
-          // return [...localFav, selectedname[0]]
         }
       } else {
         // if local storage is empty, set the value of first favourite item to true
         selectedname.map((name) => name.favourite= true )
         // Create localstorage object for the first time
         localdata.push(selectedname[0])
-        localStorage.setItem('localfavourite', JSON.stringify(localdata));
+        localStorage.setItem('localfavourite', JSON.stringify([...localFav, selectedname[0]]));
           return(localdata);
         // return [...localFav, selectedname[0]]
       }
-      // console.log(JSON.parse(localStorage.getItem('localfavourite')));
     }
 
     setLocalFav(
-      changeLocalStorage(),
-      // updateViewFromDatabase(changeLocalStorage())
+      changeLocalStorage()
     )
   }
-
-
-
 
   return(
     <>
