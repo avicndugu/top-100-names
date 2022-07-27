@@ -18,9 +18,31 @@ function SplitTable(props) {
     }
   ));
 
-// Altering Favourite State
-  const [names, setNames] = useState(namesList);
+  // Check if local storage data exist
+  if(localStorage.key(0)==='localfavourite' ) {
+    const currentlocalfav = JSON.parse(localStorage.getItem('localfavourite'));
+    // Update state for names on the local database 
+    namesList.map(name => {
+      currentlocalfav.filter((localname) => {
+        if(name.pos === localname.pos) {
+          name.favourite = true;
+          return { ...name };
+        } else {
+          return { ...name };
+        }
+      })
+      return name
+    })
 
+  } else {
+    localStorage.setItem('localfavourite', JSON.stringify([]));
+  }
+
+
+console.log(namesList[0].favourite)
+// Altering Favourite State
+ const [names, setNames] = useState(namesList);
+ console.log(names)
   const first50 = names.filter(name => name.pos <= 50);
   const second50 = names.filter(name => name.pos > 50 && name.pos <=100);
   const first25 = names.filter(name => name.pos <= 25);
@@ -46,6 +68,26 @@ const [localFav, setLocalFav] = useState(new Array(0));
 useEffect(()=> {
   console.log(localFav)
 })
+
+// useEffect(()=> {
+//   function updateViewFromDatabase(localdata){   
+//       setNames(
+//         names.map(name => {
+//           currentlocalfav.filter((localname) => {
+//             if(name.pos === localname.pos) {
+//               return { ...name, favourite: !name.favourite };
+//             } else {
+//               return { ...name };
+//             }
+//           })
+//           return name
+//         })
+//       );
+//       console.log(names);
+//     }
+//   // updateViewFromDatabase(currentlocalfav); 
+// })
+
 
 //function changeFavNameValue(id){
   //setNames(
@@ -108,11 +150,14 @@ useEffect(()=> {
       }
       // console.log(JSON.parse(localStorage.getItem('localfavourite')));
     }
-    
+
     setLocalFav(
-      changeLocalStorage()
+      changeLocalStorage(),
+      // updateViewFromDatabase(changeLocalStorage())
     )
   }
+
+
 
 
   return(
