@@ -43,6 +43,10 @@ function SplitTable(props) {
 
   const [localFav, setLocalFav] = useState([]);
 
+  useEffect(()=>{
+    console.log(localFav)
+  })
+
   // Function to set favourites
   const changeFavourite = (id) => {
     const selectedname = names.filter(name => name.pos === id);
@@ -58,17 +62,23 @@ function SplitTable(props) {
           // Remove item existing on favourite list
           currentlocalfavourite.splice(index,1);
           localStorage.setItem('localfavourite', JSON.stringify(currentlocalfavourite));
+          const testLocalfav = localFav.filter(name=> name.pos !== id);
+          console.log(testLocalfav)
+          return(testLocalfav)
+          // return localFav !== !selectedname[0]]
         } else {
           // Add new item on on favourite list
           currentlocalfavourite.push(selectedname[0]);
           localStorage.setItem('localfavourite', JSON.stringify(currentlocalfavourite));
+          return [...localFav, selectedname[0]]
         }
       } else {
         // Create localstorage object for the first time
         localdata.push(selectedname[0])
         localStorage.setItem('localfavourite', JSON.stringify(localdata));
+        return [...localFav, selectedname[0]]
       }
-      console.log(JSON.parse(localStorage.getItem('localfavourite')));
+      // console.log(JSON.parse(localStorage.getItem('localfavourite')));
     }
     setNames(
       names.map((name) => {
