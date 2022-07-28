@@ -63,14 +63,14 @@ function Home() {
     const girls = data.filter((name) => name.gender === "F");
     girls.forEach((item, index) =>{
       item.pos = index + 1;
-      newArrGirls.push(item)
+      newArrGirls.push(item);
       return newArrGirls;
     })
 
     const boys = data.filter((name) => name.gender === "M");
     boys.forEach((item, index) =>{
       item.pos = index + 1;
-      newArrBoys.push(item)
+      newArrBoys.push(item);
       return newArrBoys;
     })
 

@@ -1,11 +1,13 @@
 import TopNames from './TopNames';
+import ViewAllButton from './ViewAllButton';
 import{ useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 function MaleFemaleLists(props) {
   const [seeAllGirls, setSeeAllGirls] = useState(false);
   const [seeAllBoys, setSeeAllBoys] = useState(false);
-
+  const [viewAllGirlsButton, setViewAllGirlsButton] = useState(true); 
+  const [viewAllBoysButton, setViewAllBoysButton] = useState(true); 
 
 
   const newArrGirls= [];
@@ -35,16 +37,18 @@ function MaleFemaleLists(props) {
 // setting seeAllGirls and seeAllBoys false if visiting after clicking one of bottom links
   const location = useLocation();
 
-function UpdateViewAllState (resetstate){
-  useEffect(() => {
-    setSeeAllGirls(location.state.resetviewall);
-    setSeeAllBoys(location.state.resetviewall);
-  },[resetstate]);
-}
+  function UpdateViewAllState (resetstate){
+    useEffect(() => {
+      setSeeAllGirls(location.state.resetviewall);
+      setSeeAllBoys(location.state.resetviewall);
+      setViewAllGirlsButton(true);
+      setViewAllBoysButton(true);
+    },[resetstate]);
+  }
 
-if (location.state !== null){
-  UpdateViewAllState(location.state);
-}
+  if (location.state !== null){
+    UpdateViewAllState(location.state);
+  }
 
   return(
     <>
@@ -55,9 +59,7 @@ if (location.state !== null){
             <TopNames top10 ={ top10boys }  top100={ top100boys } gender = "m" seeall={ seeAllBoys } />
           </tbody>
         </table>
-        <div className="text-center">
-          <button onClick={()=> setSeeAllBoys(true)} className="fullwidth">View All</button>
-        </div>
+        <ViewAllButton setSeeAll={ setSeeAllBoys } viewAllButton={ viewAllBoysButton } setViewAllButton={ setViewAllBoysButton } />
       </div>
       <div className="Column">
         <h2>Top 100 Baby Girls Names in { props.params.year }</h2>
@@ -66,9 +68,7 @@ if (location.state !== null){
             <TopNames top10 ={ top10girls } top100={ top100girls } gender = "f" seeall={ seeAllGirls }/>
           </tbody>
         </table>
-        <div className="text-center">
-          <button onClick={()=> setSeeAllGirls(true)} className="fullwidth">View All</button>
-        </div>
+        <ViewAllButton setSeeAll={ setSeeAllGirls } viewAllButton={ viewAllGirlsButton } setViewAllButton={ setViewAllGirlsButton } />
       </div>
     </>
   )
