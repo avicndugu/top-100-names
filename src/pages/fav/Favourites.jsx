@@ -1,6 +1,4 @@
-import PlaceHolder1To10 from '../../components/PlaceHolder1To10';
 import AllBottomLinks from '../../components/AllBottomLinks';
-
 
 function Favourites() {
   if (localStorage.key(0)!=='localfavourite'){
@@ -36,14 +34,23 @@ function Favourites() {
         <h1>Your Favourite Baby Names</h1>
         <div className="Row">
           <div className="Column">
-            {
-              currentlocalfav.map((name)=>(
-                <p>{ name.name }</p>
-              ))
-            }
+            <table>
+              <tbody>
+                {
+                  currentlocalfav.map((name)=>(
+                    <tr key={`${name.pos}`}>
+                      <td>{ name.name }</td>
+                    </tr>
+                  ))
+                }
+              </tbody>
+            </table>
           </div>
           <div className="Column">
-            <PlaceHolder1To10 />
+            <table>
+              <tbody>
+              </tbody>
+            </table>
           </div>
         </div>
         <AllBottomLinks />
