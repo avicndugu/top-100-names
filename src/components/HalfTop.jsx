@@ -23,7 +23,7 @@ const SplitTop = (props) => {
     } else {
       return (
         props.secondQuarter.map((item) => (
-          <tr key={`${props.gender}-${item.pos}`}>
+          <tr key={`${props.gender}-${item.id}`}>
             <td>
               {`${item.pos}`}. {item.name}
             </td>
@@ -39,7 +39,7 @@ const SplitTop = (props) => {
     if(!props.even){
       return(
         props.firstHalf.map((item) => (
-          <tr key={`${props.gender}-${item.pos}`}>
+          <tr key={`${props.gender}-${item.id}`}>
             <td>{`${item.pos}`}. {item.name}</td>
             <td>
               <img style={iconWidth} src={ item.favourite ? heartsolid : heartoutline } onClick={()=>props.changeFavourite(item.pos)} alt={ item.favourite ? "favourite" : "not favourite" } />
@@ -50,7 +50,7 @@ const SplitTop = (props) => {
     } else {
       return (
         props.secondHalf.map((item) => (
-          <tr key={`${props.gender}-${item.pos}`}>
+          <tr key={`${props.gender}-${item.id}`}>
             <td>
               {`${item.pos}`}. {item.name}
             </td>

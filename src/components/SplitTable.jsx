@@ -6,16 +6,15 @@ import { useLocation } from 'react-router-dom';
 function SplitTable(props) {
   const [seeAll, setSeeAll] = useState(false);
   const [viewAllButton, setViewAllButton] = useState(true); 
-  const favourites = new Array(100).fill(false);
  
   const namesList = props.names.map((item, index) => (
     {
       id: item.id,
-      pos: item.id.substring(6),
+      pos: index + 1,
       name: item.name,
       count: item.count,
       gender: item.gender,
-      favourite: favourites[index]
+      favourite: item.favourite
     }
   ));
 
