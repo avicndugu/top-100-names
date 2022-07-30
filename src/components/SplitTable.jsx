@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 function SplitTable(props) {
   const [seeAll, setSeeAll] = useState(false);
   const [viewAllButton, setViewAllButton] = useState(true); 
- 
+
   const namesList = props.names.map((item, index) => (
     {
       id: item.id,
