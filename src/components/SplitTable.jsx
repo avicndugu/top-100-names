@@ -63,16 +63,12 @@ function SplitTable(props) {
 
   const [localFav, setLocalFav] = useState(new Array(0));
 
-
-
   // Function to set favourites
   const changeFavourite = (id) => {
-  // changeFavNameValue(id);
     // Change the favourite value of liked name
     const selectedname = namesList.filter(name => name.id === id);
     
     function changeLocalStorage(){
-      console.log(selectedname);
       const localdata = [];
       if(localStorage.key(0)==='localfavourite' ) {
         // Update localstorage object
