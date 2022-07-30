@@ -7,10 +7,11 @@ function SplitTable(props) {
   const [seeAll, setSeeAll] = useState(false);
   const [viewAllButton, setViewAllButton] = useState(true); 
   const favourites = new Array(100).fill(false);
-  
+ 
   const namesList = props.names.map((item, index) => (
     {
-      pos: index + 1,
+      id: item.id,
+      pos: item.id.substring(6),
       name: item.name,
       count: item.count,
       gender: item.gender,
@@ -24,7 +25,7 @@ function SplitTable(props) {
     // Update state for names on the local database 
     namesList.map(name => {
       currentlocalfav.filter((localname) => {
-        if(name.pos === localname.pos) {
+        if(name.id === localname.id) {
           name.favourite = true;
           return { ...name };
         } else {
@@ -39,7 +40,6 @@ function SplitTable(props) {
   }
 
 
-console.log(namesList[0].favourite)
 // Altering Favourite State
   const first50 = namesList.filter(name => name.pos <= 50);
   const second50 = namesList.filter(name => name.pos > 50 && name.pos <=100);
@@ -69,7 +69,7 @@ console.log(namesList[0].favourite)
   const changeFavourite = (id) => {
   // changeFavNameValue(id);
     // Change the favourite value of liked name
-    const selectedname = namesList.filter(name => name.pos === id);
+    const selectedname = namesList.filter(name => name.id === id);
     
     function changeLocalStorage(){
       console.log(selectedname);
@@ -78,7 +78,7 @@ console.log(namesList[0].favourite)
         // Update localstorage object
         const currentlocalfavourite = JSON.parse(localStorage.getItem('localfavourite'));
         // Check if name exist in favourite list
-        const index = currentlocalfavourite.map(item => item.pos).indexOf(id);
+        const index = currentlocalfavourite.map(item => item.id).indexOf(id);
         if (index>=0){
           // if item is in local storage, set value of the favourite item to false
           selectedname.map((name) => name.favourite= false )

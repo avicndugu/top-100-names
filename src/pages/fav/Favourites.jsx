@@ -38,7 +38,7 @@ function Favourites() {
               <tbody>
                 {
                   currentlocalfav.map((name)=>(
-                    <tr key={`${name.pos}`}>
+                    <tr key={name.id}>
                       <td>{ name.name }</td>
                     </tr>
                   ))
