@@ -3,7 +3,7 @@ const TopNames = (props) => {
     if(!props.seeall){
       return (
         props.top10.map((item) => (
-          <tr key={`${props.gender}-${item.pos}`}>
+          <tr key={`${props.gender}-${item.id}`}>
             <td>{`${item.pos}`}. {item.name}</td>
           </tr>
         ))
@@ -11,7 +11,7 @@ const TopNames = (props) => {
     } else {
       return (
         props.top100.map((item) => (
-          <tr key={`${props.gender}-${item.pos}`}>
+          <tr key={`${props.gender}-${item.id}`}>
             <td>{`${item.pos}`}. {item.name}</td>
           </tr>
         ))
@@ -22,7 +22,7 @@ const TopNames = (props) => {
       if(!props.seeall){
         return (
           props.top10.map((item) => (
-            <tr key={`${props.gender}-${item.pos}`}>
+            <tr key={`${props.gender}-${item.id}`}>
               <td>{`${item.pos}`}. {item.name}</td>
             </tr>
           ))
@@ -30,7 +30,7 @@ const TopNames = (props) => {
       } else {
         return (
           props.top100.map((item) => (
-            <tr key={`${props.gender}-${item.pos}`}>
+            <tr key={`${props.gender}-${item.id}`}>
               <td>{`${item.pos}`}. {item.name}</td>
             </tr>
           ))
