@@ -2,6 +2,9 @@ import TopNames from './TopNames';
 import ViewAllButton from './ViewAllButton';
 import{ useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+// import createlocalstore from '../functions/createlocalstore';
+// import  changelocalstore from '../functions/changelocalstore';
+
 
 function MaleFemaleLists(props) {
   const [seeAllGirls, setSeeAllGirls] = useState(false);
@@ -9,11 +12,21 @@ function MaleFemaleLists(props) {
   const [viewAllGirlsButton, setViewAllGirlsButton] = useState(true); 
   const [viewAllBoysButton, setViewAllBoysButton] = useState(true); 
 
+  
+  const namesList = props.names.map((item, index) => (
+    {
+      id: item.id,
+      name: item.name,
+      count: item.count,
+      gender: item.gender,
+      favourite: item.favourite
+    }
+  ));
 
   const newArrGirls= [];
   const newArrBoys= [];
 
-  const girls = props.names.filter((name) => name.gender === "F");
+  const girls = namesList.filter((name) => name.gender === "F");
   girls.forEach((item, index) =>{
     item.pos = index + 1;
     newArrGirls.push(item)
@@ -21,7 +34,7 @@ function MaleFemaleLists(props) {
   })
 
 
-  const boys = props.names.filter((name) => name.gender === "M");
+  const boys = namesList.filter((name) => name.gender === "M");
   boys.forEach((item, index) =>{
     item.pos = index + 1;
     newArrBoys.push(item)
@@ -56,7 +69,7 @@ function MaleFemaleLists(props) {
         <h2>Top 100 Baby Boys Names in { props.params.year }</h2>
         <table>
           <tbody>
-            <TopNames top10 ={ top10boys }  top100={ top100boys } gender = "m" seeall={ seeAllBoys } />
+            <TopNames top10 ={ top10boys }  top100={ top100boys } gender = "m" seeall={ seeAllBoys } changeFavourite= { props.changeFavourite } />
           </tbody>
         </table>
         <ViewAllButton setSeeAll={ setSeeAllBoys } viewAllButton={ viewAllBoysButton } setViewAllButton={ setViewAllBoysButton } />
@@ -65,7 +78,7 @@ function MaleFemaleLists(props) {
         <h2>Top 100 Baby Girls Names in { props.params.year }</h2>
         <table>
           <tbody>
-            <TopNames top10 ={ top10girls } top100={ top100girls } gender = "f" seeall={ seeAllGirls }/>
+            <TopNames top10 ={ top10girls } top100={ top100girls } gender = "f" seeall={ seeAllGirls } changeFavourite= { props.changeFavourite } />
           </tbody>
         </table>
         <ViewAllButton setSeeAll={ setSeeAllGirls } viewAllButton={ viewAllGirlsButton } setViewAllButton={ setViewAllGirlsButton } />
