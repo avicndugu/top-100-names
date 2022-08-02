@@ -2,8 +2,8 @@ import HalfTop from './HalfTop';
 import ViewAllButton from './ViewAllButton';
 import{ useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import createlocalstore from '../functions/createlocalstore';
-import  changelocalstore from '../functions/changelocalstore';
+// import createlocalstore from '../functions/createlocalstore';
+// import  changelocalstore from '../functions/changelocalstore';
 
 
 function SplitTable(props) {
@@ -27,20 +27,20 @@ function SplitTable(props) {
   const first25 = namesList.filter(name => name.pos <= 25);
   const second25 = namesList.filter(name => name.pos>25 && name.pos <= 50);
 
-//   // setting seeAll false if visiting after clicking one of bottom links
-//   const location = useLocation();
+  // setting seeAll false if visiting after clicking one of bottom links
+  const location = useLocation();
 
-//   function UpdateViewAllState (resetstate){
-//     useEffect(() => {
-//       setSeeAll(location.state.resetviewall);
-//       setSeeAll(location.state.resetviewall);
-//       setViewAllButton(true);
-//     },[resetstate]);
-//   }
+  function UpdateViewAllState (resetstate){
+    useEffect(() => {
+      setSeeAll(location.state.resetviewall);
+      setSeeAll(location.state.resetviewall);
+      setViewAllButton(true);
+    },[resetstate]);
+  }
 
-//   if (location.state !== null){
-//     UpdateViewAllState(location.state);
-//   }
+  if (location.state !== null){
+    UpdateViewAllState(location.state);
+  }
 
   // // Create an empty store if it does not exist else indicate the current user's favourite names
   // createlocalstore(namesList);
