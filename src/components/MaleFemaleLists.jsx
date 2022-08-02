@@ -23,9 +23,6 @@ function MaleFemaleLists(props) {
     }
   ));
 
-  // Create an empty store if it does not exist else indicate the current user's favourite names
-  // createlocalstore(namesList);
-
   const newArrGirls= [];
   const newArrBoys= [];
 
@@ -65,20 +62,6 @@ function MaleFemaleLists(props) {
   if (location.state !== null){
     UpdateViewAllState(location.state);
   }
-
-
-
-  // const [localFav, setLocalFav] = useState(new Array(0));
-
-  // // Function to set favourites
-  // const changeFavourite = (id) => {
-  //   // Change the favourite value of liked name
-  //   const selectedname = namesList.filter(name => name.id === id);
-  //   setLocalFav(
-  //     changelocalstore(localFav, id, selectedname)
-  //   )
-  // }
-
 
   return(
     <>

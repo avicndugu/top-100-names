@@ -12,26 +12,7 @@ import changelocalstore from '../../functions/changelocalstore';
 function Year() {
   let params = useParams();
   const [isDataLoading, data] = useFetch(`https://jekyll-json-api.netlify.app/yob${params.year}.json`);
-
-  // const [seeAll, setSeeAll] = useState(false);
-  // const [viewAllButton, setViewAllButton] = useState(true); 
   const [localFav, setLocalFav] = useState(new Array(0));
-
-  // // setting seeAll false if visiting after clicking one of bottom links
-  // const location = useLocation();
-
-  // function UpdateViewAllState (resetstate){
-  //   useEffect(() => {
-  //     setSeeAll(location.state.resetviewall);
-  //     setSeeAll(location.state.resetviewall);
-  //     setViewAllButton(true);
-  //   },[resetstate]);
-  // }
-
-  // if (location.state !== null){
-  //   UpdateViewAllState(location.state);
-  // }
-
 
   if (isDataLoading || !data){
     return (
@@ -65,16 +46,8 @@ function Year() {
       }
     ));
 
-    // // Altering Favourite State
-    // const first50 = namesList.filter(name => name.pos <= 50);
-    // const second50 = namesList.filter(name => name.pos > 50 && name.pos <=100);
-    // const first25 = namesList.filter(name => name.pos <= 25);
-    // const second25 = namesList.filter(name => name.pos>25 && name.pos <= 50);
-
-    
     // Create an empty store if it does not exist else indicate the current user's favourite names
     createlocalstore(namesList);
-
 
     // Function to set favourites
     const changeFavourite = (id) => {

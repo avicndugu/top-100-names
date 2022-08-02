@@ -2,9 +2,6 @@ import HalfTop from './HalfTop';
 import ViewAllButton from './ViewAllButton';
 import{ useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-// import createlocalstore from '../functions/createlocalstore';
-// import  changelocalstore from '../functions/changelocalstore';
-
 
 function SplitTable(props) {
   const [seeAll, setSeeAll] = useState(false);
@@ -41,20 +38,6 @@ function SplitTable(props) {
   if (location.state !== null){
     UpdateViewAllState(location.state);
   }
-
-  // // Create an empty store if it does not exist else indicate the current user's favourite names
-  // createlocalstore(namesList);
-
-  // const [localFav, setLocalFav] = useState(new Array(0));
-
-  // // Function to set favourites
-  // const changeFavourite = (id) => {
-  //   // Change the favourite value of liked name
-  //   const selectedname = namesList.filter(name => name.id === id);
-  //   setLocalFav(
-  //     changelocalstore(localFav, id, selectedname)
-  //   )
-  // }
 
   return(
     <>
