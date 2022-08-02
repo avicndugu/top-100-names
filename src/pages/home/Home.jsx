@@ -99,8 +99,6 @@ function Home() {
     // Create an empty store if it does not exist else indicate the current user's favourite names
     createlocalstore(namesList);
 
-
-
     // Function to set favourites
     const changeFavourite = (id) => {
       // Change the favourite value of liked name
@@ -114,7 +112,7 @@ function Home() {
       <>
         <div>
           <h1>Top 100 Baby Names in 2021</h1>
-          <SplitTable names= { data }/>
+          <SplitTable names= { namesList } changeFavourite= {changeFavourite} />
         </div>
         <div className="Row">
           <div className="Column">

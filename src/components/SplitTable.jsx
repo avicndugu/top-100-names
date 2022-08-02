@@ -21,40 +21,40 @@ function SplitTable(props) {
     }
   ));
 
-// Altering Favourite State
+// // Altering Favourite State
   const first50 = namesList.filter(name => name.pos <= 50);
   const second50 = namesList.filter(name => name.pos > 50 && name.pos <=100);
   const first25 = namesList.filter(name => name.pos <= 25);
   const second25 = namesList.filter(name => name.pos>25 && name.pos <= 50);
 
-  // setting seeAll false if visiting after clicking one of bottom links
-  const location = useLocation();
+//   // setting seeAll false if visiting after clicking one of bottom links
+//   const location = useLocation();
 
-  function UpdateViewAllState (resetstate){
-    useEffect(() => {
-      setSeeAll(location.state.resetviewall);
-      setSeeAll(location.state.resetviewall);
-      setViewAllButton(true);
-    },[resetstate]);
-  }
+//   function UpdateViewAllState (resetstate){
+//     useEffect(() => {
+//       setSeeAll(location.state.resetviewall);
+//       setSeeAll(location.state.resetviewall);
+//       setViewAllButton(true);
+//     },[resetstate]);
+//   }
 
-  if (location.state !== null){
-    UpdateViewAllState(location.state);
-  }
+//   if (location.state !== null){
+//     UpdateViewAllState(location.state);
+//   }
 
-  // Create an empty store if it does not exist else indicate the current user's favourite names
-  createlocalstore(namesList);
+  // // Create an empty store if it does not exist else indicate the current user's favourite names
+  // createlocalstore(namesList);
 
-  const [localFav, setLocalFav] = useState(new Array(0));
+  // const [localFav, setLocalFav] = useState(new Array(0));
 
-  // Function to set favourites
-  const changeFavourite = (id) => {
-    // Change the favourite value of liked name
-    const selectedname = namesList.filter(name => name.id === id);
-    setLocalFav(
-      changelocalstore(localFav, id, selectedname)
-    )
-  }
+  // // Function to set favourites
+  // const changeFavourite = (id) => {
+  //   // Change the favourite value of liked name
+  //   const selectedname = namesList.filter(name => name.id === id);
+  //   setLocalFav(
+  //     changelocalstore(localFav, id, selectedname)
+  //   )
+  // }
 
   return(
     <>
@@ -62,14 +62,14 @@ function SplitTable(props) {
         <div className="Column">
           <table>
             <tbody>
-              <HalfTop firstQuarter = { first25 } firstHalf = { first50 }  gender = "all" even={false} seeall={seeAll} changeFavourite= {changeFavourite}/>
+              <HalfTop firstQuarter = { first25 } firstHalf = { first50 }  gender = "all" even={false} seeall={seeAll} changeFavourite= {props.changeFavourite}/>
             </tbody>
           </table>
         </div>
         <div className="Column">
           <table>
             <tbody>
-              <HalfTop secondQuarter = { second25 } secondHalf= { second50 } gender = "all" even={true} seeall={seeAll}  changeFavourite= {changeFavourite}/>
+              <HalfTop secondQuarter = { second25 } secondHalf= { second50 } gender = "all" even={true} seeall={seeAll}  changeFavourite= {props.changeFavourite}/>
             </tbody>
           </table>
         </div>
