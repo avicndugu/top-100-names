@@ -10,19 +10,16 @@ function changelocalstore(localFav, id, selectedname) {
     console.log(selectedname);
     console.log(selectedname[0].name);
     // Check if name exist in favourite list by name
-    const selectedNameIndex = currentlocalfavourite
+    const nameIndex = currentlocalfavourite
       .map((item) => item.name)
       .indexOf(selectedname[0].name);
-    console.log(selectedNameIndex);
+    console.log(nameIndex);
 
-    // Check if name exist in favourite list by id
-    const index = currentlocalfavourite.map((item) => item.id).indexOf(id);
-
-    if (index >= 0) {
+    if (nameIndex >= 0) {
       // if item is in local storage, set value of the favourite item to false
       selectedname.map((name) => (name.favourite = false));
       // Remove item existing on favourite list
-      currentlocalfavourite.splice(index, 1);
+      currentlocalfavourite.splice(nameIndex, 1);
       console.log(currentlocalfavourite);
       localStorage.setItem(
         "localfavourite",
