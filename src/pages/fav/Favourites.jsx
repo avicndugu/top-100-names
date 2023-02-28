@@ -1,33 +1,39 @@
-import AllBottomLinks from '../../components/AllBottomLinks';
+import AllBottomLinks from "../../components/AllBottomLinks";
 
 function Favourites() {
-  if (localStorage.key(0)!=='localfavourite'){
+  if (localStorage.key(0) !== "localfavourite") {
     return (
       <>
         <h1>Your Favourite Baby Names</h1>
         <div>
           <p>No favourite baby names</p>
           <p>You have not choosen any baby names.</p>
-          <p>You selected the baby names will appear here once you click the heart button next to the name.</p>
+          <p>
+            You selected the baby names will appear here once you click the
+            heart button next to the name.
+          </p>
         </div>
         <AllBottomLinks />
       </>
-    )
+    );
   } else {
-    const currentlocalfav = JSON.parse(localStorage.getItem('localfavourite'));
+    const currentlocalfav = JSON.parse(localStorage.getItem("localfavourite"));
     console.log(currentlocalfav);
-    if(currentlocalfav.length===0) {
+    if (currentlocalfav.length === 0) {
       return (
         <>
-        <h1>Your Favourite Baby Names</h1>
-        <div>
-          <p>No favourite baby names</p>
-          <p>You have not choosen any baby names.</p>
-          <p>You selected the baby names will appear here once you click the heart button next to the name.</p>
-        </div>
-        <AllBottomLinks />
+          <h1>Your Favourite Baby Names</h1>
+          <div>
+            <p>No favourite baby names</p>
+            <p>You have not choosen any baby names.</p>
+            <p>
+              You selected the baby names will appear here once you click the
+              heart button next to the name.
+            </p>
+          </div>
+          <AllBottomLinks />
         </>
-      )
+      );
     }
     return (
       <>
@@ -36,26 +42,23 @@ function Favourites() {
           <div className="Column">
             <table>
               <tbody>
-                {
-                  currentlocalfav.map((name)=>(
-                    <tr key={name.id}>
-                      <td>{ name.name }</td>
-                    </tr>
-                  ))
-                }
+                {currentlocalfav.map((name) => (
+                  <tr key={name.id}>
+                    <td>{name.name}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
           <div className="Column">
             <table>
-              <tbody>
-              </tbody>
+              <tbody></tbody>
             </table>
           </div>
         </div>
         <AllBottomLinks />
       </>
-    )
+    );
   }
 }
 
