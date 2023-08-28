@@ -28,6 +28,14 @@ function App() {
         </Routes>
         
       </main>
+      <footer style={{ textAlign: 'center', paddingTop: '80px', paddingBottom: '30px' }} >
+        <small>
+          <span>Copyright © 2021 - 2023 </span>
+          <a href="https://avicndugu.github.io">Avic Ndugu</a>
+          <span> - </span>
+          <a href="https://www.ssa.gov/oact/babynames/">Data source</a>
+        </small>
+      </footer>
     </div>
   );
 }
