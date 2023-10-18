@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should render completed Todonew 1`] = `"tree"`;
+
 exports[`should render completed Todonew: <del> 1`] = `
 <div
   data-testid="todo-2"
