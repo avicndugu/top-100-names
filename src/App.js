@@ -6,8 +6,15 @@ import Home from './pages/home/Home';
 import Year from './pages/year/Year';
 import Gender from './pages/gender/Gender';
 import Favourites from './pages/fav/Favourites';
+import Todo from './components/todo';
+import TodoNew from './components/todonew';
 
 function App() {
+  const todos = [
+    { id: 1, title: 'wash dishes', completed: false },
+    { id: 1, title: 'make dinner', completed: true },
+  ];
+
   return (
     <div className="Container">
       <header className="App-header">
@@ -18,6 +25,10 @@ function App() {
         </a>
       </header>
       <main>
+        <Todo />
+        { todos.map((todo) => {
+          return (<TodoNew todo={todo} />)
+        })}
         <Routes>
           <Route path="/" element={ <Home /> } />
           <Route path=":year" element= { <Year /> }/>

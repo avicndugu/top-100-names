@@ -3,7 +3,7 @@ import Todo from '../todo';
 
 test('should render todo', () => {
   render(<Todo />)
-  const todoElement = screen.getByTestId('todo-1');
+  const todoElement = screen.getByTestId('todo-x');
   expect(todoElement).toBeInTheDocument();
   expect(todoElement).toHaveTextContent('Hello');
 })
