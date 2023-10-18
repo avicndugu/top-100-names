@@ -1,6 +1,10 @@
 import { render, screen, cleanup } from '@testing-library/react';
 import Todo from '../todo';
 
+afterEach(() => {
+  cleanup();
+});
+
 test('should render todo', () => {
   render(<Todo />)
   const todoElement = screen.getByTestId('todo-x');
