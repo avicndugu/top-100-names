@@ -8,6 +8,10 @@ import Gender from './pages/gender/Gender';
 import Favourites from './pages/fav/Favourites';
 
 function App() {
+  const today = new Date();
+  const year = today.getFullYear();
+
+
   return (
     <div className="Container">
       <header className="App-header">
@@ -30,10 +34,10 @@ function App() {
       </main>
       <footer style={{ textAlign: 'center', paddingTop: '80px', paddingBottom: '30px' }} >
         <small>
-          <span>Copyright © 2021 - 2023 </span>
+          <span>Copyright © 2021 - {year} - </span> 
           <a href="https://avicndugu.github.io">Avic Ndugu</a>
           <span> - </span>
-          <a href="https://www.ssa.gov/oact/babynames/">Data source</a>
+          <a href="https://www.ssa.gov/oact/babynames/">Data source (SSA)</a>
         </small>
       </footer>
     </div>
