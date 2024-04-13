@@ -2,6 +2,7 @@ import TopNames from "../../components/TopNames";
 import SplitTable from "../../components/SplitTable";
 import AllBottomLinks from "../../components/AllBottomLinks";
 import PlaceHolder1To10 from "../../components/PlaceHolder1To10";
+import HomeYear from "../../components/HomeYear";
 import useFetch from "../../functions/useFetch";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -12,6 +13,7 @@ function Home() {
   const [isDataLoading, data] = useFetch(
     "https://jekyll-json-api.netlify.app/yob2021.json"
   );
+
   const [seeAllGirls, setSeeAllGirls] = useState(false);
   const [seeAllBoys, setSeeAllBoys] = useState(false);
 
@@ -35,7 +37,7 @@ function Home() {
     return (
       <>
         <div>
-          <h1>Top 100 Baby Names in 2021</h1>
+          <h1>Top 100 Baby Names in loading...</h1>
           <div className="Row">
             <div className="Column">
               <PlaceHolder1To10 />
@@ -49,12 +51,12 @@ function Home() {
         </div>
         <div className="Row">
           <div className="Column">
-            <h2>Top 100 Baby Boys Names in 2021</h2>
+            <h2>Top 100 Baby Boys Names in loading...</h2>
             <PlaceHolder1To10 />
             <a href="/years/gender/">View All</a>
           </div>
           <div className="Column">
-            <h2>Top 100 Baby Girls Names in 2021</h2>
+            <h2>Top 100 Baby Girls Names in loading...</h2>
             <PlaceHolder1To10 />
             <a href="/year/gender/">View All</a>
           </div>
@@ -106,12 +108,12 @@ function Home() {
     return (
       <>
         <div>
-          <h1>Top 100 Baby Names in 2021</h1>
+          <h1>Top 100 Baby Names in <HomeYear /></h1>
           <SplitTable names={namesList} changeFavourite={changeFavourite} />
         </div>
         <div className="Row">
           <div className="Column">
-            <h2>Top 100 Baby Boys Names in 2021</h2>
+            <h2>Top 100 Baby Boys Names in <HomeYear /></h2>
             <table>
               <tbody>
                 <TopNames
@@ -131,7 +133,7 @@ function Home() {
             </div>
           </div>
           <div className="Column">
-            <h2>Top 100 Baby Girls Names in 2021</h2>
+            <h2>Top 100 Baby Girls Names in <HomeYear /></h2>
             <table>
               <tbody>
                 <TopNames
