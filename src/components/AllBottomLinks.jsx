@@ -35,11 +35,11 @@ const [pageNumberGirls, setPageNumberGirls] = useState(1);
       </>
     )
   } else {
-    const numberofpages = Math.floor(data.length/9) + 1;
+    const numberofpages = Math.floor(data.length/8) + 1;
     // Cycle through the years per page
-    let currentpageyears = data.slice((pageNumber-1)*9,pageNumber*9);
-    let currentpageyearsboys = data.slice((pageNumberBoys-1)*9,pageNumberBoys*9);
-    let currentpageyearsgirls = data.slice((pageNumberGirls-1)*9,pageNumberGirls*9);
+    let currentpageyears = data.slice((pageNumber-1)*8,pageNumber*8);
+    let currentpageyearsboys = data.slice((pageNumberBoys-1)*8,pageNumberBoys*8);
+    let currentpageyearsgirls = data.slice((pageNumberGirls-1)*8,pageNumberGirls*8);
 
     return(
       <> 
