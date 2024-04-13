@@ -5,7 +5,7 @@ import useFetch from '../functions/useFetch';
 import {useState} from 'react';
 
 const AllBottomLinks = () => {
-const [isDataLoading, data] = useFetch('https://jekyll-json-api.netlify.app//allyears.json');
+const [isDataLoading, data] = useFetch('https://jekyll-json-api.netlify.app/allyears.json');
 
 const [pageNumber, setPageNumber] = useState(1);
 const [pageNumberBoys, setPageNumberBoys] = useState(1);
