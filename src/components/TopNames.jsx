@@ -13,7 +13,7 @@ const TopNames = (props) => {
           <tr key={`${props.gender}-${item.id}`}>
             <td>{`${item.pos}`}. {item.name}</td>
             <td>
-              <img style={iconWidth} src={ item.favourite ? heartsolid : heartoutline } onClick={()=>{ props.changeFavourite(item.id)}} alt={ item.favourite ? "favourite" : "not favourite" } />
+              <img style={iconWidth} width="30" height="30" src={ item.favourite ? heartsolid : heartoutline } onClick={()=>{ props.changeFavourite(item.id)}} alt={ item.favourite ? "favourite" : "not favourite" } />
             </td>
           </tr>
         ))
@@ -24,7 +24,7 @@ const TopNames = (props) => {
           <tr key={`${props.gender}-${item.id}`}>
             <td>{`${item.pos}`}. {item.name}</td>
             <td>
-              <img style={iconWidth} src={ item.favourite ? heartsolid : heartoutline } onClick={()=>{ props.changeFavourite(item.id)}} alt={ item.favourite ? "favourite" : "not favourite" } />
+              <img style={iconWidth} width="30" height="30" src={ item.favourite ? heartsolid : heartoutline } onClick={()=>{ props.changeFavourite(item.id)}} alt={ item.favourite ? "favourite" : "not favourite" } />
             </td>
           </tr>
         ))
@@ -38,7 +38,7 @@ const TopNames = (props) => {
             <tr key={`${props.gender}-${item.id}`}>
               <td>{`${item.pos}`}. {item.name}</td>
               <td>
-                <img style={iconWidth} src={ item.favourite ? heartsolid : heartoutline } onClick={()=>{ props.changeFavourite(item.id)}} alt={ item.favourite ? "favourite" : "not favourite" } />
+                <img style={iconWidth} width="30" height="30" src={ item.favourite ? heartsolid : heartoutline } onClick={()=>{ props.changeFavourite(item.id)}} alt={ item.favourite ? "favourite" : "not favourite" } />
               </td>
             </tr>
           ))
@@ -49,7 +49,7 @@ const TopNames = (props) => {
             <tr key={`${props.gender}-${item.id}`}>
               <td>{`${item.pos}`}. {item.name}</td>
               <td>
-                <img style={iconWidth} src={ item.favourite ? heartsolid : heartoutline } onClick={()=>{ props.changeFavourite(item.id)}} alt={ item.favourite ? "favourite" : "not favourite" } />
+                <img style={iconWidth} width="30" height="30" src={ item.favourite ? heartsolid : heartoutline } onClick={()=>{ props.changeFavourite(item.id)}} alt={ item.favourite ? "favourite" : "not favourite" } />
               </td>
             </tr>
           ))

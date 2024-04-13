@@ -15,10 +15,14 @@ function App() {
   return (
     <div className="Container">
       <header className="App-header">
-        <a href="/"><img src={logo} alt="Top 100 Names" height="50px"/></a>
+        <a href="/"><img src={logo} alt="Top 100 Names" height="50" width="148.7"/></a>
         <a href="/favourites" style={{ display: 'flex', alignItems: 'center' }}>
-          <span>Saved</span>
-            <img style={{width: '30px', height: '30px', marginLeft: '10px'}} src={ heartsolid } alt={ "favourite names" } />
+          <div>
+            <span style={{ display: 'inline-block', marginBottom: '6px'}}>Saved</span>
+          </div>
+          <div>
+            <img style={{width: '30px', height: '30px', marginLeft: '10px'}} src={ heartsolid } alt={ "favourite names" } width="30" height="30" />
+          </div>
         </a>
       </header>
       <main>
