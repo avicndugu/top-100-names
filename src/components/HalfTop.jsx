@@ -16,6 +16,8 @@ const SplitTop = (props) => {
           <td>
             <img
               style={iconWidth}
+              width="30" 
+              height="30"
               src={item.favourite ? heartsolid : heartoutline}
               onClick={() => {
                 props.changeFavourite(item.id);
@@ -34,6 +36,8 @@ const SplitTop = (props) => {
           <td>
             <img
               style={iconWidth}
+              width="30" 
+              height="30"
               src={item.favourite ? heartsolid : heartoutline}
               onClick={() => {
                 props.changeFavourite(item.id);
@@ -54,6 +58,8 @@ const SplitTop = (props) => {
           <td>
             <img
               style={iconWidth}
+              width="30" 
+              height="30"
               src={item.favourite ? heartsolid : heartoutline}
               onClick={() => props.changeFavourite(item.id)}
               alt={item.favourite ? "favourite" : "not favourite"}
@@ -70,6 +76,8 @@ const SplitTop = (props) => {
           <td>
             <img
               style={iconWidth}
+              width="30" 
+              height="30"
               src={item.favourite ? heartsolid : heartoutline}
               onClick={() => props.changeFavourite(item.id)}
               alt={item.favourite ? "favourite" : "not favourite"}
