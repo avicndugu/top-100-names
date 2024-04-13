@@ -113,6 +113,11 @@ button.fullwidth {
   padding: 10px;
 }
 
+.pagination button:disabled {
+  opacity: 0.85;
+  border: dotted 2px #862e9c;
+}
+
 /*@media(min-width: 48em){  
   .pagination {
    display: flex;
