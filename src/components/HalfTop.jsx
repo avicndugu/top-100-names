@@ -5,7 +5,7 @@ const iconWidth = {
   width: "30px",
 };
 
-const SplitTop = (props) => {
+function HalfTop(props) {
   if (!props.seeall) {
     if (!props.even) {
       return props.firstQuarter.map((item) => (
@@ -89,4 +89,4 @@ const SplitTop = (props) => {
   }
 };
 
-export default SplitTop;
+export default HalfTop;
