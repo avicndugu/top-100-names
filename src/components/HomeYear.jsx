@@ -1,19 +1,19 @@
 import useFetch from '../functions/useFetch';
-import {useState, useEffect} from 'react';
+import {useEffect} from 'react';
 
-const HomeYear = (props) => {
+const HomeYear = (year, setYear) => {
 const [isDataLoading, data] = useFetch('https://jekyll-json-api.netlify.app/allyears.json');
 
   useEffect(()=> {
     if(data){
-      props.setYear(data[0].year);
+      setYear(data[0].year);
     }
-  }, [data]);
+  }, [data, setYear]);
 
   if (isDataLoading || !data){
     return <span>loading...</span>        
   } else {
-    return <span>{props.year}</span>
+    return <span>{year}</span>
   }
 }
 

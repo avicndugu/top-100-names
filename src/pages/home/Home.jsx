@@ -4,7 +4,6 @@ import AllBottomLinks from "../../components/AllBottomLinks";
 import PlaceHolder1To10 from "../../components/PlaceHolder1To10";
 import HomeYear from "../../components/HomeYear";
 import useFetch from "../../functions/useFetch";
-import Fetch from "../../functions/useFetch";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import createlocalstore from "../../functions/createlocalstore";
