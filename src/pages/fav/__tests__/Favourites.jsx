@@ -3,10 +3,13 @@ import renderer from 'react-test-renderer';
 import { BrowserRouter } from 'react-router-dom';
 import Favourites from '../Favourites';
 
-test('should render Favourites', () => {
-  render(  
-    <BrowserRouter>
-      <Favourites />
-    </BrowserRouter>
-  )
-});
+describe('Favourites page tests', () => {
+  test('should render Favourites', () => {
+    render(  
+      <BrowserRouter>
+        <Favourites />
+      </BrowserRouter>
+    )
+    expect(screen.getByText('Your Favourite Baby Names')).toBeInTheDocument();
+  });
+})

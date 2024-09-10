@@ -65,11 +65,7 @@ function Gender() {
         <>
           <div>
             <h1>
-              Top 100{" "}
-              {
-                params.gender ? params.gender.replace(/^\w/, (firstLetter) => firstLetter.toUpperCase()) : ""
-              }{" "}
-              Names in {params.year}
+              Top 100{" "}{ params.gender ? params.gender.replace(/^\w/, (firstLetter) => firstLetter.toUpperCase()) : ""}{" "}Names in {params.year}
             </h1>
             <SplitTable names={boys} changeFavourite={changeFavourite} />
           </div>
